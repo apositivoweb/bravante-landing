@@ -45,7 +45,7 @@ nav{
 #hero{
   position:relative;height:100vh;min-height:700px;
   display:flex;align-items:flex-end;overflow:hidden;
-  background:var(--negro);
+  background:var(--verde);
 }
 /* Imagen ocupa toda la mitad derecha, sin ningún efecto encima */
 .hero-img{
@@ -60,7 +60,7 @@ nav{
 .hero-overlay{
   position:absolute;left:0;top:0;bottom:0;
   width:55%;z-index:1;
-  background:linear-gradient(to right, var(--negro) 60%, transparent 100%);
+  background:linear-gradient(to right, var(--verde) 60%, transparent 100%);
 }
 .hero-content{
   position:relative;z-index:2;
@@ -104,7 +104,7 @@ nav{
 
 /* ── ANCLA — verde oscuro ── */
 #precio-ancla{
-  background:var(--verde);padding:26px 60px;
+  background:var(--terracota);padding:26px 60px;
   display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
   border-bottom:1px solid rgba(255,255,255,.07);
 }
@@ -115,11 +115,11 @@ nav{
 .ancla-text-val{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--blanco)}
 .ancla-sep{width:1px;height:30px;background:rgba(255,255,255,.1)}
 .ancla-cta{
-  background:var(--blanco);color:var(--negro);
+  background:var(--verde);color:var(--blanco);
   font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   padding:14px 28px;text-decoration:none;white-space:nowrap;transition:background .25s;
 }
-.ancla-cta:hover{background:var(--crema)}
+.ancla-cta:hover{background:var(--verde-mid)}
 
 /* ── GALLERY STRIP — 3 imágenes horizontales ── */
 #gallery-strip{display:grid;grid-template-columns:1fr 1fr 1fr;height:480px;gap:3px;overflow:hidden}
@@ -342,7 +342,7 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   nav{padding:16px 22px}
-  #hero{background:var(--negro)}
+  #hero{background:var(--verde)}
   .hero-img{width:100%;background-size:cover;background-position:center center}
   .hero-overlay{width:100%;background:linear-gradient(to right,rgba(0,0,0,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.2) 100%),linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 50%)}
   .hero-content{padding:0 22px 56px;max-width:100%}
@@ -433,11 +433,6 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
     <h2 class="section-title">Agenda tu<br><em>visita hoy</em></h2>
     <div class="divider"></div>
     <p>Nuestros asesores están disponibles lunes a domingo de 10am a 6pm. Un espacio diseñado para impresionar desde el primer paso.</p>
-    <ul>
-      <li>Atención personalizada sin compromiso</li>
-      <li>Información de esquemas de pago al instante</li>
-      <li>Lunes a domingo · 10:00 am – 6:00 pm</li>
-    </ul>
   </div>
   <div class="form-box">
     <h3>Un paso de hacerlo tuyo</h3>
