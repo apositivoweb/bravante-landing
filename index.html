@@ -41,24 +41,34 @@ nav{
 }
 .nav-cta:hover{background:var(--crema);transform:translateY(-1px)}
 
-/* ── HERO — imagen nítida, solo gradiente oscuro para texto ── */
+/* ── HERO — torre completa visible, contenido a la derecha, sin capas sobre imagen ── */
 #hero{
   position:relative;height:100vh;min-height:700px;
-  display:flex;align-items:flex-end;overflow:hidden;
+  display:flex;align-items:stretch;overflow:hidden;
+  background:var(--negro);
 }
+/* Mitad derecha: imagen de la torre sin ningún efecto encima */
 .hero-img{
-  position:absolute;inset:0;z-index:0;
-  background-size:cover;background-position:center 30%;
+  position:absolute;right:0;top:0;bottom:0;
+  width:52%;z-index:0;
+  background-size:contain;
+  background-repeat:no-repeat;
+  background-position:center center;
   background-image:url('hero_main.jpg');
 }
-/* Solo oscurece izquierda/abajo para legibilidad — SIN tinte de color */
+/* Mitad izquierda: fondo oscuro sólido — SIN overlay sobre la imagen */
 .hero-overlay{
-  position:absolute;inset:0;z-index:1;
-  background:
-    linear-gradient(to right, rgba(0,0,0,.78) 0%, rgba(0,0,0,.4) 55%, rgba(0,0,0,0) 100%),
-    linear-gradient(to top,   rgba(0,0,0,.7)  0%, transparent 55%);
+  position:absolute;left:0;top:0;bottom:0;
+  width:52%;z-index:1;
+  background:linear-gradient(to right, var(--negro) 70%, transparent 100%);
 }
-.hero-content{position:relative;z-index:2;padding:0 60px 80px;max-width:680px}
+.hero-content{
+  position:relative;z-index:2;
+  margin-left:auto;
+  padding:0 60px 80px 40px;
+  max-width:520px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
   background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
@@ -221,25 +231,10 @@ nav{
 .ubi-icon{width:22px;height:22px;opacity:.45;flex-shrink:0}
 .ubi-icon svg{width:100%;height:100%;stroke:var(--blanco);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .ubi-map{
-  background:var(--terracota-dark);aspect-ratio:1;
-  position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  aspect-ratio:1;position:relative;overflow:hidden;
   border:1px solid rgba(255,255,255,.1);
 }
-.ubi-map::before{
-  content:'';position:absolute;inset:0;
-  background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.04) 39px,rgba(255,255,255,.04) 40px),
-             repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.04) 39px,rgba(255,255,255,.04) 40px);
-}
-.map-pin-area{position:relative;text-align:center;z-index:1}
-.map-pin-svg{width:38px;height:38px;margin:0 auto 14px;display:block}
-.map-pin-svg svg{width:100%;height:100%;stroke:var(--blanco);fill:rgba(255,255,255,.15);stroke-width:1.5}
-.map-address{font-family:var(--serif);font-size:19px;font-weight:300;color:var(--blanco);margin-bottom:6px}
-.map-city{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.map-link{
-  display:inline-block;margin-top:18px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--blanco);border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px;text-decoration:none;
-}
-.map-link:hover{border-color:var(--blanco)}
+
 
 /* ── TIPOLOGÍAS — crema ── */
 #tipologias{background:var(--crema);color:var(--negro);padding:100px 60px}
@@ -349,8 +344,10 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   nav{padding:16px 22px}
-  .hero-content{padding:0 22px 56px}
-  .hero-stats{display:none}
+  #hero{flex-direction:column;background:var(--negro)}
+  .hero-img{width:100%;height:55%;top:auto;bottom:0;right:0;background-size:cover;background-position:center top}
+  .hero-overlay{width:100%;background:linear-gradient(to top, var(--negro) 45%, transparent 100%)}
+  .hero-content{padding:0 22px 40px;max-width:100%;margin-left:0}
   #precio-ancla{padding:18px 22px;gap:14px}
   .ancla-sep{display:none}
   #gallery-strip{grid-template-columns:1fr;height:auto}
@@ -409,11 +406,7 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
       <a href="#tipologias" class="btn-ghost">Ver tipologías</a>
     </div>
   </div>
-  <div class="hero-stats">
-    <div><span class="hero-stat-num">75</span><span class="hero-stat-label">Depas &amp; Lofts</span></div>
-    <div><span class="hero-stat-num">3'</span><span class="hero-stat-label">Al Consulado</span></div>
-    <div><span class="hero-stat-num">100%</span><span class="hero-stat-label">Terminado</span></div>
-  </div>
+
 </section>
 
 <!-- ANCLA -->
@@ -513,12 +506,13 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
       <div class="ubi-ref"><div class="ubi-min">1'<span>min</span></div><div class="ubi-place"><h4>Barbarella · Kappo · La Tequila</h4><p>Corredor gastronómico Av. México caminando</p></div><div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div></div>
     </div>
     <div class="ubi-map">
-      <div class="map-pin-area">
-        <div class="map-pin-svg"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-        <p class="map-address">Av. México #3016</p>
-        <p class="map-city">Col. Juan Manuel · Guadalajara, Jalisco</p>
-        <a href="https://maps.app.goo.gl/kir2Xd9ULhZiBPrh9" target="_blank" class="map-link">Ver en Google Maps →</a>
-      </div>
+      <iframe
+        src="https://www.google.com/maps/d/embed?mid=1gyOr_cYWbVU536LbGwaSUHdf_W_DsGc&ehbc=2E312F&noprof=1"
+        width="100%" height="100%"
+        style="border:0;display:block;filter:saturate(0.7) contrast(1.05)"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </div>
 </section>
