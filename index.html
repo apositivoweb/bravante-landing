@@ -41,33 +41,31 @@ nav{
 }
 .nav-cta:hover{background:var(--crema);transform:translateY(-1px)}
 
-/* ── HERO — torre completa visible, contenido a la derecha, sin capas sobre imagen ── */
+/* ── HERO — torre completa visible a la derecha, contenido a la izquierda ── */
 #hero{
   position:relative;height:100vh;min-height:700px;
-  display:flex;align-items:stretch;overflow:hidden;
+  display:flex;align-items:flex-end;overflow:hidden;
   background:var(--negro);
 }
-/* Mitad derecha: imagen de la torre sin ningún efecto encima */
+/* Imagen ocupa toda la mitad derecha, sin ningún efecto encima */
 .hero-img{
   position:absolute;right:0;top:0;bottom:0;
-  width:52%;z-index:0;
+  width:55%;z-index:0;
   background-size:contain;
   background-repeat:no-repeat;
   background-position:center center;
   background-image:url('hero_main.jpg');
 }
-/* Mitad izquierda: fondo oscuro sólido — SIN overlay sobre la imagen */
+/* Gradiente solo en la mitad izquierda para el texto — NO toca la imagen */
 .hero-overlay{
   position:absolute;left:0;top:0;bottom:0;
-  width:52%;z-index:1;
-  background:linear-gradient(to right, var(--negro) 70%, transparent 100%);
+  width:55%;z-index:1;
+  background:linear-gradient(to right, var(--negro) 60%, transparent 100%);
 }
 .hero-content{
   position:relative;z-index:2;
-  margin-left:auto;
-  padding:0 60px 80px 40px;
-  max-width:520px;
-  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 60px 80px;
+  max-width:600px;
 }
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;
@@ -344,10 +342,10 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
 /* ── RESPONSIVE ── */
 @media(max-width:960px){
   nav{padding:16px 22px}
-  #hero{flex-direction:column;background:var(--negro)}
-  .hero-img{width:100%;height:55%;top:auto;bottom:0;right:0;background-size:cover;background-position:center top}
-  .hero-overlay{width:100%;background:linear-gradient(to top, var(--negro) 45%, transparent 100%)}
-  .hero-content{padding:0 22px 40px;max-width:100%;margin-left:0}
+  #hero{background:var(--negro)}
+  .hero-img{width:100%;background-size:cover;background-position:center center}
+  .hero-overlay{width:100%;background:linear-gradient(to right,rgba(0,0,0,.85) 0%,rgba(0,0,0,.5) 60%,rgba(0,0,0,.2) 100%),linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 50%)}
+  .hero-content{padding:0 22px 56px;max-width:100%}
   #precio-ancla{padding:18px 22px;gap:14px}
   .ancla-sep{display:none}
   #gallery-strip{grid-template-columns:1fr;height:auto}
@@ -486,7 +484,7 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
     <div style="margin-top:34px"><a href="#formulario" class="btn-primary">Agenda tu visita</a></div>
   </div>
   <div class="tagline-right">
-    <img class="tagline-img" src="hf_20260513_020646_c2bd7179-d39f-4681-9b1d-c59d2ee77b01.jpg" alt="Vida en Bravante">
+    <img class="tagline-img" src="torre_noche.jpg" alt="Bravante de noche">
     <div class="tagline-caption">La comunidad que esperabas, en el corredor correcto.</div>
   </div>
 </section>
