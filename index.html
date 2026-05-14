@@ -47,20 +47,20 @@ nav{
   display:flex;align-items:flex-end;overflow:hidden;
   background:var(--verde);
 }
-/* Imagen ocupa toda la mitad derecha, sin ningún efecto encima */
+/* Imagen cubre todo el lado derecho hasta el borde — sin columna verde */
 .hero-img{
   position:absolute;right:0;top:0;bottom:0;
-  width:55%;z-index:0;
-  background-size:contain;
+  width:60%;z-index:0;
+  background-size:cover;
   background-repeat:no-repeat;
   background-position:center center;
   background-image:url('hero_main.jpg');
 }
-/* Gradiente solo en la mitad izquierda para el texto — NO toca la imagen */
+/* Gradiente: oscurece suavemente donde se une con el texto — NO toca el lado derecho */
 .hero-overlay{
   position:absolute;left:0;top:0;bottom:0;
-  width:55%;z-index:1;
-  background:linear-gradient(to right, var(--verde) 60%, transparent 100%);
+  width:50%;z-index:1;
+  background:linear-gradient(to right, var(--verde) 55%, transparent 100%);
 }
 .hero-content{
   position:relative;z-index:2;
@@ -76,10 +76,10 @@ nav{
 }
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--blanco);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
-.hero-city{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:18px;animation:fadeInUp .6s ease both .35s}
+.hero-city{font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:18px;animation:fadeInUp .6s ease both .35s}
 .hero-logo-area{margin-bottom:22px;animation:fadeInUp .7s ease both .4s}
 .hero-logo-area img{height:40px;display:block}
-.hero-sub{font-size:15px;font-weight:300;letter-spacing:.05em;color:rgba(255,255,255,.85);line-height:1.9;margin-bottom:32px;max-width:480px;animation:fadeInUp .7s ease both .55s}
+.hero-sub{font-size:17px;font-weight:300;letter-spacing:.05em;color:rgba(255,255,255,.85);line-height:1.9;margin-bottom:32px;max-width:480px;animation:fadeInUp .7s ease both .55s}
 .hero-sub b{color:var(--blanco);font-weight:600}
 .hero-precio{display:flex;align-items:baseline;gap:10px;margin-bottom:32px;animation:fadeInUp .7s ease both .65s}
 .hero-precio-desde{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45)}
@@ -142,7 +142,7 @@ nav{
 .form-left .section-title{color:var(--verde)}
 .form-left .section-title em{color:var(--verde-mid)}
 .form-left .divider{background:var(--terracota)}
-.form-left p{font-size:14px;font-weight:300;line-height:1.8;color:#555;max-width:380px}
+.form-left p{font-size:16px;font-weight:300;line-height:1.8;color:#555;max-width:380px}
 .form-left ul{margin-top:22px;list-style:none;display:flex;flex-direction:column;gap:10px}
 .form-left ul li{font-size:13px;display:flex;align-items:center;gap:10px;color:#333}
 .form-left ul li::before{content:'';width:20px;height:1px;background:var(--terracota);flex-shrink:0}
@@ -154,8 +154,8 @@ nav{
 .form-group label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
 .form-group input,.form-group select{
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  color:var(--blanco);font-family:var(--sans);font-size:13px;font-weight:300;
-  padding:11px 13px;outline:none;transition:border-color .25s;
+  color:var(--blanco);font-family:var(--sans);font-size:15px;font-weight:300;
+  padding:12px 13px;outline:none;transition:border-color .25s;
   appearance:none;-webkit-appearance:none;
 }
 .form-group input::placeholder{color:rgba(255,255,255,.25)}
@@ -165,7 +165,7 @@ nav{
 .sel::after{content:'▾';position:absolute;right:13px;top:50%;transform:translateY(-50%) translateY(6px);color:var(--piedra);font-size:12px;pointer-events:none}
 .form-check{display:flex;align-items:flex-start;gap:10px;margin:14px 0}
 .form-check input[type=checkbox]{accent-color:var(--crema);margin-top:2px;flex-shrink:0}
-.form-check label{font-size:12px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.5;cursor:pointer}
+.form-check label{font-size:14px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.5;cursor:pointer}
 .btn-form{
   width:100%;background:var(--blanco);color:var(--negro);
   font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
@@ -189,7 +189,7 @@ nav{
 .dif-num{font-family:var(--serif);font-size:50px;font-weight:300;color:rgba(255,255,255,.15);line-height:1}
 .dif-item h3{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--blanco);margin-bottom:9px}
 .dif-item h3 strong{color:var(--crema);font-weight:600}
-.dif-item p{font-size:13px;font-weight:300;line-height:1.85;color:rgba(255,255,255,.65)}
+.dif-item p{font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,.65)}
 .dif-tag{
   display:inline-block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:var(--negro);background:rgba(255,255,255,.2);padding:5px 11px;
@@ -224,8 +224,8 @@ nav{
 .ubi-ref:hover{padding-left:6px}
 .ubi-min{font-family:var(--serif);font-size:36px;font-weight:600;color:var(--blanco);line-height:1}
 .ubi-min span{font-family:var(--sans);font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.1em;display:block;margin-top:2px}
-.ubi-place h4{font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--blanco)}
-.ubi-place p{font-size:12px;font-weight:300;color:rgba(255,255,255,.55);margin-top:2px}
+.ubi-place h4{font-size:16px;font-weight:600;letter-spacing:.04em;color:var(--blanco)}
+.ubi-place p{font-size:14px;font-weight:300;color:rgba(255,255,255,.55);margin-top:2px}
 .ubi-icon{width:22px;height:22px;opacity:.45;flex-shrink:0}
 .ubi-icon svg{width:100%;height:100%;stroke:var(--blanco);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .ubi-map{
@@ -268,7 +268,7 @@ nav{
 .tipo-badge-g{background:var(--verde-mid);color:var(--blanco);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 9px}
 .tipo-incluye{margin-top:14px;padding:11px 13px;background:rgba(148,65,49,.08)}
 .tipo-card.featured .tipo-incluye{background:rgba(255,255,255,.07)}
-.tipo-incluye p{font-size:11px;color:#555;letter-spacing:.02em}
+.tipo-incluye p{font-size:13px;color:#555;letter-spacing:.02em}
 .tipo-card.featured .tipo-incluye p{color:rgba(255,255,255,.5)}
 .tipo-incluye p::before{content:'✓ ';color:var(--terracota);font-weight:700}
 
@@ -279,11 +279,11 @@ nav{
 #esquemas .section-title em{color:var(--verde-mid)}
 #esquemas .divider{background:rgba(103,116,82,.5)}
 .esquemas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:44px}
-.esquema-card{background:rgba(0,0,0,.18);padding:30px 22px;border:1px solid rgba(255,255,255,.05);transition:background .3s,border-color .3s}
-.esquema-card:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
-.esquema-num{font-family:var(--serif);font-size:50px;font-weight:600;color:var(--verde-mid);opacity:.4;line-height:1;margin-bottom:10px}
-.esquema-title{font-size:13px;font-weight:700;letter-spacing:.07em;color:var(--crema);margin-bottom:7px}
-.esquema-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.7}
+.esquema-card{background:var(--crema);padding:30px 22px;border:none;transition:background .3s,box-shadow .3s}
+.esquema-card:hover{background:var(--blanco);box-shadow:0 8px 32px rgba(0,0,0,.15)}
+.esquema-num{font-family:var(--serif);font-size:50px;font-weight:600;color:var(--verde);opacity:.25;line-height:1;margin-bottom:10px}
+.esquema-title{font-size:15px;font-weight:700;letter-spacing:.05em;color:var(--negro);margin-bottom:8px}
+.esquema-desc{font-size:14px;font-weight:300;color:#444;line-height:1.7}
 
 /* ── AMENIDADES — terracota ── */
 #amenidades{background:var(--terracota);padding:100px 60px}
@@ -292,7 +292,7 @@ nav{
 #amenidades .section-title em{color:var(--crema)}
 #amenidades .divider{background:rgba(255,255,255,.35)}
 .amen-intro{max-width:520px;margin-bottom:60px}
-.amen-intro p{font-size:14px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.7);margin-top:14px}
+.amen-intro p{font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.7);margin-top:14px}
 .amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
 .amen-card{
   background:rgba(0,0,0,.15);padding:30px 22px;
@@ -309,8 +309,8 @@ nav{
 .amen-icon{width:34px;height:34px;margin-bottom:14px;display:block}
 .amen-icon svg{width:100%;height:100%;stroke:rgba(255,255,255,.8);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .amen-card.p .amen-icon svg{stroke:var(--blanco)}
-.amen-name{font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--blanco)}
-.amen-desc{font-size:11px;font-weight:300;color:rgba(255,255,255,.55);margin-top:5px;line-height:1.5}
+.amen-name{font-size:15px;font-weight:600;letter-spacing:.06em;color:var(--blanco)}
+.amen-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.55);margin-top:5px;line-height:1.5}
 
 /* ── AMENIDADES GALLERY ── */
 #amen-gallery{display:grid;grid-template-columns:1fr 1fr 1fr;height:400px;gap:3px}
@@ -331,7 +331,7 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
 .footer-dev{font-size:11px;font-weight:300;color:rgba(255,255,255,.25);letter-spacing:.07em}
 .footer-dev strong{color:rgba(255,255,255,.5)}
 .footer-col h5{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--verde-mid);margin-bottom:18px}
-.footer-col p,.footer-col address{font-size:13px;font-weight:300;color:rgba(255,255,255,.42);line-height:1.9;font-style:normal}
+.footer-col p,.footer-col address{font-size:14px;font-weight:300;color:rgba(255,255,255,.42);line-height:1.9;font-style:normal}
 .footer-col a{color:rgba(255,255,255,.42);text-decoration:none}
 .footer-col a:hover{color:var(--crema)}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
@@ -518,7 +518,7 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
   <p style="font-size:14px;font-weight:300;color:#666;margin-top:10px;max-width:460px;line-height:1.8">Tres tipologías diseñadas para distintos estilos de vida. Todas incluyen cajón y bodega sin costo adicional.</p>
   <div class="tipo-grid">
     <div class="tipo-card featured">
-      <div class="tipo-header"><div><div class="tipo-letra">A</div><div class="tipo-nombre">Departamento Premier</div></div><div class="tipo-badge-t">Prioridad</div></div>
+      <div class="tipo-header"><div><div class="tipo-letra">A</div><div class="tipo-nombre">Departamento Premier</div></div></div>
       <div class="tipo-plan"><img src="hf_20260428_014814_2c9d6d9c-d2ff-4981-9176-aced8eb1e863.jpg" alt="Tipo A"></div>
       <div class="tipo-body">
         <div class="tipo-specs"><div class="tipo-spec"><span class="tipo-spec-val">73–78</span><span class="tipo-spec-key">m²</span></div><div class="tipo-spec"><span class="tipo-spec-val">2</span><span class="tipo-spec-key">Recámaras</span></div><div class="tipo-spec"><span class="tipo-spec-val">2</span><span class="tipo-spec-key">Baños</span></div></div>
@@ -536,7 +536,7 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
       </div>
     </div>
     <div class="tipo-card">
-      <div class="tipo-header"><div><div class="tipo-letra" style="color:var(--verde-mid)">C</div><div class="tipo-nombre">Loft</div></div><div class="tipo-badge-g">Inversión</div></div>
+      <div class="tipo-header"><div><div class="tipo-letra" style="color:var(--verde-mid)">C</div><div class="tipo-nombre">Loft</div></div></div>
       <div class="tipo-plan"><img src="hf_20260513_234901_21e73566-e2e9-4250-a61c-89ae2241e0d1.jpg" alt="Loft C"></div>
       <div class="tipo-body">
         <div class="tipo-specs"><div class="tipo-spec"><span class="tipo-spec-val">39–44</span><span class="tipo-spec-key">m²</span></div><div class="tipo-spec"><span class="tipo-spec-val">1</span><span class="tipo-spec-key">Recámara</span></div><div class="tipo-spec"><span class="tipo-spec-val">1</span><span class="tipo-spec-key">Baño</span></div></div>
