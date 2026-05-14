@@ -8,15 +8,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-/* ─── PALETTE from key visual ─── */
-:root {
-  --verde:    #00291B;  /* main dark green */
-  --verde-mid:#697452;  /* sage/olive */
-  --terracota:#944131;  /* accent warm */
-  --carbon:   #2C2C28;  /* near-black */
-  --piedra:   #C6C7BE;  /* light stone */
-  --crema:    #F0EDE6;  /* off-white */
-  --blanco:   #ffffff;
+:root{
+  --verde:#00291B; --verde-mid:#697452; --terracota:#944131;
+  --carbon:#2C2C28; --piedra:#C6C7BE; --crema:#F0EDE6;
+  --blanco:#ffffff;
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Josefin Sans',sans-serif;
 }
@@ -24,266 +19,268 @@
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--carbon);color:var(--blanco);overflow-x:hidden}
 
-/* ─── NAV ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background:linear-gradient(to bottom,rgba(0,41,27,.95) 0%,transparent 100%);backdrop-filter:blur(8px)}
-.nav-logo img{height:28px;filter:brightness(0) invert(1)}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:20px 60px;background:linear-gradient(to bottom,rgba(0,41,27,.9) 0%,transparent 100%);backdrop-filter:blur(6px)}
+.nav-logo img{height:26px;filter:brightness(0) invert(1)}
 .nav-cta{background:var(--terracota);color:var(--blanco);font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:12px 28px;text-decoration:none;transition:background .25s,transform .2s}
-.nav-cta:hover{background:#b05040;transform:translateY(-1px)}
+.nav-cta:hover{background:#a84e3a;transform:translateY(-1px)}
 
-/* ─── HERO ─── */
+/* HERO — imagen nítida, overlay solo para legibilidad del texto */
 #hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:flex-end;overflow:hidden}
-.hero-img{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center top;background-image:url('hf_20260511_232818_974a08aa-20a5-4e16-be88-80bc475a5486.jpg')}
-.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(0,41,27,.90) 0%,rgba(0,41,27,.55) 55%,rgba(0,41,27,.15) 100%),linear-gradient(to top,rgba(0,41,27,.95) 0%,transparent 55%)}
-.hero-content{position:relative;z-index:2;padding:0 60px 80px;max-width:700px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(148,65,49,.2);border:1px solid rgba(148,65,49,.5);padding:7px 16px;margin-bottom:24px;font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#e8a090;animation:fadeInUp .6s ease both .2s}
+.hero-img{
+  position:absolute;inset:0;z-index:0;
+  background-size:cover;background-position:center center;
+  background-image:url('hero_new.jpg');
+}
+/* Overlay suave solo donde está el texto — sin tinte verde */
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to right, rgba(10,14,10,.82) 0%, rgba(10,14,10,.45) 50%, rgba(10,14,10,.05) 100%),
+    linear-gradient(to top,   rgba(10,14,10,.75) 0%, transparent 50%);
+}
+.hero-content{position:relative;z-index:2;padding:0 60px 80px;max-width:680px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(148,65,49,.18);border:1px solid rgba(148,65,49,.45);padding:7px 16px;margin-bottom:24px;font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#e8a090;animation:fadeInUp .6s ease both .2s}
 .hero-badge::before{content:'';width:6px;height:6px;background:var(--terracota);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
-.hero-city{font-size:11px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px;animation:fadeInUp .6s ease both .35s}
-.hero-logo-area{margin-bottom:20px;animation:fadeInUp .7s ease both .4s}
-.hero-logo-area img{height:48px;filter:brightness(0) invert(1)}
-.hero-sub{font-family:var(--sans);font-size:15px;font-weight:300;letter-spacing:.06em;color:rgba(255,255,255,.8);line-height:1.9;margin-bottom:36px;max-width:500px;animation:fadeInUp .7s ease both .55s}
+.hero-city{font-size:11px;font-weight:400;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:14px;animation:fadeInUp .6s ease both .35s}
+.hero-logo-area{margin-bottom:18px;animation:fadeInUp .7s ease both .4s}
+.hero-logo-area img{height:44px;filter:brightness(0) invert(1)}
+.hero-sub{font-size:15px;font-weight:300;letter-spacing:.05em;color:rgba(255,255,255,.82);line-height:1.9;margin-bottom:34px;max-width:480px;animation:fadeInUp .7s ease both .55s}
 .hero-sub b{color:var(--blanco);font-weight:600}
-.hero-precio{display:flex;align-items:baseline;gap:10px;margin-bottom:36px;animation:fadeInUp .7s ease both .65s}
-.hero-precio-desde{font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.hero-precio-num{font-family:var(--serif);font-size:clamp(38px,4.5vw,58px);font-weight:600;color:var(--blanco)}
-.hero-precio-mdp{font-family:var(--sans);font-size:14px;font-weight:300;color:var(--piedra);letter-spacing:.1em}
+.hero-precio{display:flex;align-items:baseline;gap:10px;margin-bottom:34px;animation:fadeInUp .7s ease both .65s}
+.hero-precio-desde{font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hero-precio-num{font-family:var(--serif);font-size:clamp(36px,4.5vw,56px);font-weight:600;color:var(--blanco)}
+.hero-precio-mdp{font-size:14px;font-weight:300;color:var(--piedra);letter-spacing:.1em}
 .hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;animation:fadeInUp .7s ease both .75s}
-.btn-primary{background:var(--terracota);color:var(--blanco);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:16px 36px;text-decoration:none;transition:all .25s;display:inline-block}
-.btn-primary:hover{background:#b05040;transform:translateY(-2px);box-shadow:0 8px 28px rgba(148,65,49,.4)}
-.btn-ghost{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:color .25s,border-color .25s}
+.btn-primary{background:var(--terracota);color:var(--blanco);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:15px 34px;text-decoration:none;transition:all .25s;display:inline-block}
+.btn-primary:hover{background:#a84e3a;transform:translateY(-2px);box-shadow:0 8px 28px rgba(148,65,49,.4)}
+.btn-ghost{font-size:12px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:color .25s,border-color .25s}
 .btn-ghost:hover{color:var(--blanco);border-color:var(--blanco)}
 .hero-stats{position:absolute;right:60px;bottom:80px;z-index:2;display:flex;gap:48px}
-.hero-stat-num{font-family:var(--serif);font-size:38px;font-weight:600;color:var(--crema);display:block;line-height:1;text-align:center}
-.hero-stat-label{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;display:block;text-align:center}
+.hero-stat-num{font-family:var(--serif);font-size:36px;font-weight:600;color:var(--crema);display:block;line-height:1;text-align:center}
+.hero-stat-label{font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-top:4px;display:block;text-align:center}
 
-/* ─── ANCLA ─── */
-#precio-ancla{background:var(--verde);padding:26px 60px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08)}
+/* ANCLA */
+#precio-ancla{background:var(--verde);padding:26px 60px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.07)}
 .ancla-item{display:flex;align-items:center;gap:14px}
-.ancla-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ancla-icon{width:34px;height:34px;border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ancla-icon svg{width:16px;height:16px;stroke:var(--crema);fill:none;stroke-width:1.5}
-.ancla-text-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.ancla-text-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38)}
 .ancla-text-val{font-family:var(--serif);font-size:19px;font-weight:600;color:var(--blanco)}
-.ancla-sep{width:1px;height:32px;background:rgba(255,255,255,.1)}
+.ancla-sep{width:1px;height:30px;background:rgba(255,255,255,.1)}
 .ancla-cta{background:var(--terracota);color:var(--blanco);font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:14px 28px;text-decoration:none;white-space:nowrap;transition:background .25s}
-.ancla-cta:hover{background:#b05040}
+.ancla-cta:hover{background:#a84e3a}
 
-/* ─── SECTION BASE ─── */
-.section-label{font-family:var(--sans);font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--terracota);margin-bottom:12px}
-.section-title{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:300;line-height:1.1}
-.section-title em{font-style:italic;color:var(--verde-mid)}
-.divider{width:48px;height:1px;background:var(--terracota);margin:20px 0}
-
-/* ─── FORMULARIO ─── */
-.form-section{background:var(--crema);color:var(--carbon);padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.form-left .section-label{color:var(--verde)}
-.form-left .section-title{color:var(--verde)}
-.form-left .divider{background:var(--verde)}
-.form-left p{font-size:14px;font-weight:300;line-height:1.8;color:#555;max-width:380px}
-.form-left ul{margin-top:24px;list-style:none;display:flex;flex-direction:column;gap:10px}
-.form-left ul li{font-size:13px;letter-spacing:.05em;display:flex;align-items:center;gap:10px;color:#333}
-.form-left ul li::before{content:'';width:20px;height:1px;background:var(--verde);flex-shrink:0}
-.form-box{background:var(--verde);padding:48px 40px;color:var(--blanco)}
-.form-box h3{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--crema);margin-bottom:6px}
-.form-box p.form-subtitle{font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.4);margin-bottom:32px;text-transform:uppercase}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.form-group label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.form-group input,.form-group select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:var(--blanco);font-family:var(--sans);font-size:13px;font-weight:300;padding:12px 14px;outline:none;transition:border-color .25s;appearance:none;-webkit-appearance:none}
-.form-group input::placeholder{color:rgba(255,255,255,.25)}
-.form-group input:focus,.form-group select:focus{border-color:var(--terracota)}
-.form-group select option{background:var(--verde);color:var(--blanco)}
-.form-group.select-wrap{position:relative}
-.form-group.select-wrap::after{content:'▾';position:absolute;right:14px;top:50%;transform:translateY(-50%) translateY(6px);color:var(--piedra);font-size:12px;pointer-events:none}
-.form-check{display:flex;align-items:flex-start;gap:10px;margin:16px 0}
-.form-check input[type=checkbox]{accent-color:var(--terracota);margin-top:2px;flex-shrink:0}
-.form-check label{font-size:12px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.5;cursor:pointer}
-.btn-form{width:100%;background:var(--terracota);color:var(--blanco);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:16px;border:none;cursor:pointer;transition:all .25s;margin-top:8px}
-.btn-form:hover{background:#b05040;transform:translateY(-1px)}
-
-/* ─── GALLERY STRIP ─── */
+/* GALLERY STRIP — 3-col, cada imagen única */
 #gallery-strip{display:grid;grid-template-columns:2fr 1fr 1fr;height:520px;gap:3px;overflow:hidden}
 .gal-item{overflow:hidden;position:relative}
 .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
 .gal-item:hover img{transform:scale(1.04)}
 .gal-right{display:grid;grid-template-rows:1fr 1fr;gap:3px}
 
-/* ─── DIFERENCIADORES ─── */
+/* SECTION */
+.section-label{font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--terracota);margin-bottom:12px}
+.section-title{font-family:var(--serif);font-size:clamp(30px,4vw,50px);font-weight:300;line-height:1.1}
+.section-title em{font-style:italic;color:var(--verde-mid)}
+.divider{width:48px;height:1px;background:var(--terracota);margin:20px 0}
+
+/* FORMULARIO */
+.form-section{background:var(--crema);color:var(--carbon);padding:100px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.form-left .section-label{color:var(--verde)}
+.form-left .section-title{color:var(--verde)}
+.form-left .section-title em{color:var(--verde-mid)}
+.form-left .divider{background:var(--verde)}
+.form-left p{font-size:14px;font-weight:300;line-height:1.8;color:#555;max-width:380px}
+.form-left ul{margin-top:22px;list-style:none;display:flex;flex-direction:column;gap:10px}
+.form-left ul li{font-size:13px;display:flex;align-items:center;gap:10px;color:#333}
+.form-left ul li::before{content:'';width:20px;height:1px;background:var(--verde);flex-shrink:0}
+.form-box{background:var(--verde);padding:46px 38px;color:var(--blanco)}
+.form-box h3{font-family:var(--serif);font-size:24px;font-weight:300;color:var(--crema);margin-bottom:6px}
+.form-box p.fsub{font-size:11px;letter-spacing:.15em;color:rgba(255,255,255,.35);margin-bottom:30px;text-transform:uppercase}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:7px;margin-bottom:14px}
+.form-group label{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.form-group input,.form-group select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:var(--blanco);font-family:var(--sans);font-size:13px;font-weight:300;padding:11px 13px;outline:none;transition:border-color .25s;appearance:none;-webkit-appearance:none}
+.form-group input::placeholder{color:rgba(255,255,255,.25)}
+.form-group input:focus,.form-group select:focus{border-color:var(--terracota)}
+.form-group select option{background:var(--verde);color:var(--blanco)}
+.sel{position:relative}
+.sel::after{content:'▾';position:absolute;right:13px;top:50%;transform:translateY(-50%) translateY(6px);color:var(--piedra);font-size:12px;pointer-events:none}
+.form-check{display:flex;align-items:flex-start;gap:10px;margin:14px 0}
+.form-check input[type=checkbox]{accent-color:var(--terracota);margin-top:2px;flex-shrink:0}
+.form-check label{font-size:12px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.5;cursor:pointer}
+.btn-form{width:100%;background:var(--terracota);color:var(--blanco);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:15px;border:none;cursor:pointer;transition:all .25s;margin-top:6px}
+.btn-form:hover{background:#a84e3a;transform:translateY(-1px)}
+
+/* DIFERENCIADORES */
 #diferenciador{background:var(--carbon);padding:120px 60px}
 .dif-grid{display:grid;grid-template-columns:1fr 2fr;gap:100px;align-items:start}
 .dif-left{position:sticky;top:120px}
-.dif-quote{font-family:var(--serif);font-size:clamp(24px,2.8vw,38px);font-weight:300;font-style:italic;line-height:1.3;color:var(--crema);padding:0 0 32px 28px;border-left:2px solid var(--terracota);margin-top:24px}
+.dif-quote{font-family:var(--serif);font-size:clamp(22px,2.6vw,36px);font-weight:300;font-style:italic;line-height:1.3;color:var(--crema);padding:0 0 28px 28px;border-left:2px solid var(--terracota);margin-top:22px}
 .dif-quote span{color:var(--verde-mid)}
-.dif-autor{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:16px;padding-left:28px}
-.dif-item{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;display:grid;grid-template-columns:64px 1fr;gap:28px;align-items:start}
-.dif-num{font-family:var(--serif);font-size:52px;font-weight:300;color:rgba(103,116,82,.25);line-height:1}
-.dif-item h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--crema);margin-bottom:10px}
+.dif-autor{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:14px;padding-left:28px}
+.dif-item{border-top:1px solid rgba(255,255,255,.07);padding:38px 0;display:grid;grid-template-columns:60px 1fr;gap:26px;align-items:start}
+.dif-num{font-family:var(--serif);font-size:50px;font-weight:300;color:rgba(103,116,82,.22);line-height:1}
+.dif-item h3{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--crema);margin-bottom:9px}
 .dif-item h3 strong{color:var(--verde-mid);font-weight:600}
-.dif-item p{font-size:13px;font-weight:300;line-height:1.85;color:rgba(255,255,255,.48)}
-.dif-tag{display:inline-block;margin-top:14px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terracota);background:rgba(148,65,49,.12);padding:5px 12px}
+.dif-item p{font-size:13px;font-weight:300;line-height:1.85;color:rgba(255,255,255,.46)}
+.dif-tag{display:inline-block;margin-top:12px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terracota);background:rgba(148,65,49,.1);padding:5px 11px}
 
-/* ─── TAGLINE BAND ─── */
+/* TAGLINE */
 #tagline-band{background:var(--verde);padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.tagline-left{}
-.tagline-phrase{font-family:var(--serif);font-size:clamp(32px,4vw,54px);font-weight:300;font-style:italic;color:var(--crema);line-height:1.15}
+.tagline-phrase{font-family:var(--serif);font-size:clamp(30px,4vw,52px);font-weight:300;font-style:italic;color:var(--crema);line-height:1.15}
 .tagline-phrase strong{font-style:normal;font-weight:600;color:var(--blanco);display:block}
-.tagline-sub{font-size:12px;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:24px}
+.tagline-sub{font-size:11px;font-weight:400;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:22px}
 .tagline-right{position:relative}
-.tagline-img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center}
-.tagline-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,41,27,.9),transparent);padding:24px;font-family:var(--serif);font-size:16px;font-style:italic;color:var(--crema)}
+.tagline-img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;display:block}
+.tagline-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,41,27,.88),transparent);padding:22px;font-family:var(--serif);font-size:15px;font-style:italic;color:var(--crema)}
 
-/* ─── UBICACIÓN ─── */
+/* UBICACIÓN */
 #ubicacion{background:var(--carbon);padding:100px 60px}
-.ubi-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:60px}
-.ubi-ref{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:20px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:padding-left .2s}
+.ubi-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:56px}
+.ubi-ref{display:grid;grid-template-columns:58px 1fr auto;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06);transition:padding-left .2s}
 .ubi-ref:hover{padding-left:6px}
-.ubi-min{font-family:var(--serif);font-size:38px;font-weight:600;color:var(--verde-mid);line-height:1}
-.ubi-min span{font-family:var(--sans);font-size:10px;font-weight:400;color:rgba(255,255,255,.3);letter-spacing:.1em;display:block;margin-top:2px}
+.ubi-min{font-family:var(--serif);font-size:36px;font-weight:600;color:var(--verde-mid);line-height:1}
+.ubi-min span{font-family:var(--sans);font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;display:block;margin-top:2px}
 .ubi-place h4{font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--blanco)}
-.ubi-place p{font-size:12px;font-weight:300;color:rgba(255,255,255,.38);margin-top:2px}
-/* SVG icons instead of emojis */
-.ubi-icon{width:24px;height:24px;opacity:.4;flex-shrink:0}
+.ubi-place p{font-size:12px;font-weight:300;color:rgba(255,255,255,.36);margin-top:2px}
+.ubi-icon{width:22px;height:22px;opacity:.38;flex-shrink:0}
 .ubi-icon svg{width:100%;height:100%;stroke:var(--piedra);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .ubi-map{background:var(--verde);aspect-ratio:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.ubi-map::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.03) 39px,rgba(255,255,255,.03) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.03) 39px,rgba(255,255,255,.03) 40px)}
+.ubi-map::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,.025) 39px,rgba(255,255,255,.025) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.025) 39px,rgba(255,255,255,.025) 40px)}
 .map-pin-area{position:relative;text-align:center;z-index:1}
-.map-pin-svg{width:40px;height:40px;margin:0 auto 16px;display:block}
-.map-pin-svg svg{width:100%;height:100%;stroke:var(--terracota);fill:none;stroke-width:1.5}
+.map-pin-svg{width:38px;height:38px;margin:0 auto 14px;display:block}
+.map-pin-svg svg{width:100%;height:100%;stroke:var(--terracota);fill:rgba(148,65,49,.15);stroke-width:1.5}
 .map-address{font-family:var(--serif);font-size:19px;font-weight:300;color:var(--crema);margin-bottom:6px}
-.map-city{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.35)}
-.map-link{display:inline-block;margin-top:20px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terracota);border-bottom:1px solid rgba(148,65,49,.4);padding-bottom:3px;text-decoration:none}
+.map-city{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.32)}
+.map-link{display:inline-block;margin-top:18px;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--terracota);border-bottom:1px solid rgba(148,65,49,.35);padding-bottom:3px;text-decoration:none}
 .map-link:hover{border-color:var(--terracota)}
 
-/* ─── TIPOLOGÍAS ─── */
+/* TIPOLOGÍAS */
 #tipologias{background:var(--crema);color:var(--carbon);padding:100px 60px}
 #tipologias .section-label{color:var(--verde)}
 #tipologias .section-title{color:var(--verde)}
-#tipologias .section-title em{color:var(--verde-mid)}
-#tipologias .divider{background:var(--verde)}
-.tipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:60px}
+.tipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px}
 .tipo-card{background:var(--blanco);overflow:hidden;transition:transform .3s,box-shadow .3s}
-.tipo-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.12)}
+.tipo-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
 .tipo-card.featured{background:var(--verde);color:var(--blanco)}
-.tipo-header{background:var(--verde);color:var(--blanco);padding:20px 28px;display:flex;justify-content:space-between;align-items:center}
-.tipo-card.featured .tipo-header{background:rgba(0,0,0,.3)}
-.tipo-letra{font-family:var(--serif);font-size:42px;font-weight:300;color:var(--verde-mid);line-height:1}
+.tipo-header{background:var(--verde);color:var(--blanco);padding:20px 26px;display:flex;justify-content:space-between;align-items:center}
+.tipo-card.featured .tipo-header{background:rgba(0,0,0,.28)}
+.tipo-letra{font-family:var(--serif);font-size:40px;font-weight:300;color:var(--verde-mid);line-height:1}
 .tipo-card.featured .tipo-letra{color:var(--crema)}
-.tipo-nombre{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.tipo-plan{height:200px;display:flex;align-items:center;justify-content:center;background:#e8e6e0;overflow:hidden;position:relative}
-.tipo-card.featured .tipo-plan{background:rgba(255,255,255,.05)}
+.tipo-nombre{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.tipo-plan{height:210px;overflow:hidden;position:relative}
 .tipo-plan img{width:100%;height:100%;object-fit:cover;object-position:center}
-.tipo-plan svg{width:60%;height:75%}
-.tipo-body{padding:28px}
-.tipo-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.tipo-body{padding:26px}
+.tipo-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
 .tipo-spec{text-align:center}
 .tipo-spec-val{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--verde);display:block;line-height:1}
 .tipo-card.featured .tipo-spec-val{color:var(--crema)}
-.tipo-spec-key{font-size:10px;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:#999;margin-top:4px;display:block}
+.tipo-spec-key{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#999;margin-top:4px;display:block}
 .tipo-card.featured .tipo-spec-key{color:rgba(255,255,255,.35)}
-.tipo-precio-area{border-top:1px solid rgba(0,0,0,.08);padding-top:20px;display:flex;justify-content:space-between;align-items:flex-end}
+.tipo-precio-area{border-top:1px solid rgba(0,0,0,.07);padding-top:18px;display:flex;justify-content:space-between;align-items:flex-end}
 .tipo-card.featured .tipo-precio-area{border-top-color:rgba(255,255,255,.1)}
-.tipo-desde{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#999}
+.tipo-desde{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#999}
 .tipo-card.featured .tipo-desde{color:rgba(255,255,255,.35)}
-.tipo-precio{font-family:var(--serif);font-size:26px;font-weight:600;color:var(--verde);line-height:1}
+.tipo-precio{font-family:var(--serif);font-size:25px;font-weight:600;color:var(--verde);line-height:1}
 .tipo-card.featured .tipo-precio{color:var(--blanco)}
-.tipo-mdp{font-family:var(--sans);font-size:12px;font-weight:400;color:var(--verde-mid)}
-.tipo-badge{background:var(--terracota);color:var(--blanco);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 10px}
-.tipo-incluye{margin-top:16px;padding:12px 14px;background:rgba(0,41,27,.07)}
-.tipo-card.featured .tipo-incluye{background:rgba(255,255,255,.08)}
-.tipo-incluye p{font-size:11px;font-weight:400;color:#555;letter-spacing:.03em}
-.tipo-card.featured .tipo-incluye p{color:rgba(255,255,255,.55)}
+.tipo-mdp{font-size:12px;color:var(--verde-mid)}
+.tipo-badge{background:var(--terracota);color:var(--blanco);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:5px 9px}
+.tipo-incluye{margin-top:14px;padding:11px 13px;background:rgba(0,41,27,.07)}
+.tipo-card.featured .tipo-incluye{background:rgba(255,255,255,.07)}
+.tipo-incluye p{font-size:11px;color:#555;letter-spacing:.02em}
+.tipo-card.featured .tipo-incluye p{color:rgba(255,255,255,.5)}
 .tipo-incluye p::before{content:'✓ ';color:var(--verde-mid);font-weight:700}
 
-/* ─── ESQUEMAS ─── */
+/* ESQUEMAS */
 #esquemas{background:var(--verde);padding:80px 60px}
-.esquemas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px}
-.esquema-card{background:rgba(0,0,0,.2);padding:32px 24px;border:1px solid rgba(255,255,255,.06);transition:background .3s,border-color .3s}
-.esquema-card:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15)}
-.esquema-num{font-family:var(--serif);font-size:52px;font-weight:600;color:var(--verde-mid);opacity:.4;line-height:1;margin-bottom:12px}
-.esquema-title{font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--crema);margin-bottom:8px}
-.esquema-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.7}
+.esquemas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:44px}
+.esquema-card{background:rgba(0,0,0,.18);padding:30px 22px;border:1px solid rgba(255,255,255,.05);transition:background .3s,border-color .3s}
+.esquema-card:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
+.esquema-num{font-family:var(--serif);font-size:50px;font-weight:600;color:var(--verde-mid);opacity:.35;line-height:1;margin-bottom:10px}
+.esquema-title{font-size:13px;font-weight:700;letter-spacing:.07em;color:var(--crema);margin-bottom:7px}
+.esquema-desc{font-size:12px;font-weight:300;color:rgba(255,255,255,.38);line-height:1.7}
 
-/* ─── AMENIDADES ─── */
+/* AMENIDADES */
 #amenidades{background:var(--carbon);padding:100px 60px}
-.amenidades-intro{max-width:540px;margin-bottom:64px}
-.amenidades-intro p{font-size:14px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.5);margin-top:16px}
+.amen-intro{max-width:520px;margin-bottom:60px}
+.amen-intro p{font-size:14px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.48);margin-top:14px}
 .amen-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
-.amen-card{background:rgba(0,41,27,.5);padding:32px 24px;border:1px solid rgba(255,255,255,.04);transition:all .3s;position:relative;overflow:hidden}
+.amen-card{background:rgba(0,41,27,.45);padding:30px 22px;border:1px solid rgba(255,255,255,.04);transition:all .3s;position:relative;overflow:hidden}
 .amen-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--terracota);transform:scaleX(0);transform-origin:left;transition:transform .4s}
 .amen-card:hover::before{transform:scaleX(1)}
-.amen-card:hover{background:rgba(0,41,27,.8)}
-.amen-card.premium{background:var(--verde);border-color:rgba(103,116,82,.2)}
-.amen-icon{width:36px;height:36px;margin-bottom:16px;display:block}
+.amen-card:hover{background:rgba(0,41,27,.75)}
+.amen-card.p{background:var(--verde);border-color:rgba(103,116,82,.18)}
+.amen-icon{width:34px;height:34px;margin-bottom:14px;display:block}
 .amen-icon svg{width:100%;height:100%;stroke:var(--verde-mid);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.amen-card.premium .amen-icon svg{stroke:var(--crema)}
-.amen-name{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.07em;color:var(--blanco)}
-.amen-desc{font-size:11px;font-weight:300;color:rgba(255,255,255,.38);margin-top:6px;line-height:1.5}
+.amen-card.p .amen-icon svg{stroke:var(--crema)}
+.amen-name{font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--blanco)}
+.amen-desc{font-size:11px;font-weight:300;color:rgba(255,255,255,.36);margin-top:5px;line-height:1.5}
 
-/* ─── AMENIDADES IMAGE ROW ─── */
-#amen-gallery{display:grid;grid-template-columns:1fr 1fr 1fr;height:420px;gap:3px}
+/* AMEN GALLERY — 3 imágenes únicas */
+#amen-gallery{display:grid;grid-template-columns:1fr 1fr 1fr;height:400px;gap:3px}
 .ag-item{overflow:hidden;position:relative}
 .ag-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .ag-item:hover img{transform:scale(1.05)}
-.ag-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,41,27,.85),transparent);padding:20px;font-family:var(--serif);font-size:15px;font-style:italic;color:var(--crema)}
+.ag-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,41,27,.82),transparent);padding:18px;font-family:var(--serif);font-size:14px;font-style:italic;color:var(--crema)}
 
-/* ─── FOOTER ─── */
-footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(255,255,255,.08)}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:48px}
-.footer-logo img{height:32px;filter:brightness(0) invert(1);margin-bottom:18px;display:block}
-.footer-tagline{font-family:var(--serif);font-size:16px;font-weight:300;font-style:italic;color:rgba(255,255,255,.35);margin-bottom:24px}
-.footer-dev{font-size:11px;font-weight:300;color:rgba(255,255,255,.28);letter-spacing:.08em}
-.footer-dev strong{color:rgba(255,255,255,.55)}
-.footer-col h5{font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--verde-mid);margin-bottom:20px}
-.footer-col p,.footer-col address{font-size:13px;font-weight:300;color:rgba(255,255,255,.45);line-height:1.9;font-style:normal}
-.footer-col a{color:rgba(255,255,255,.45);text-decoration:none}
+/* FOOTER */
+footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(255,255,255,.07)}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:56px;margin-bottom:44px}
+.footer-logo img{height:30px;filter:brightness(0) invert(1);margin-bottom:16px;display:block}
+.footer-tagline{font-family:var(--serif);font-size:15px;font-weight:300;font-style:italic;color:rgba(255,255,255,.35);margin-bottom:20px}
+.footer-dev{font-size:11px;font-weight:300;color:rgba(255,255,255,.25);letter-spacing:.07em}
+.footer-dev strong{color:rgba(255,255,255,.5)}
+.footer-col h5{font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--verde-mid);margin-bottom:18px}
+.footer-col p,.footer-col address{font-size:13px;font-weight:300;color:rgba(255,255,255,.42);line-height:1.9;font-style:normal}
+.footer-col a{color:rgba(255,255,255,.42);text-decoration:none}
 .footer-col a:hover{color:var(--crema)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-.footer-legal{font-size:10px;font-weight:300;color:rgba(255,255,255,.22);line-height:1.7;max-width:600px}
-.footer-agency{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.22)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-legal{font-size:10px;font-weight:300;color:rgba(255,255,255,.2);line-height:1.7;max-width:600px}
+.footer-agency{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2)}
 .footer-agency span{color:var(--verde-mid)}
 
-/* ─── RESPONSIVE ─── */
+/* RESPONSIVE */
 @media(max-width:960px){
-  nav{padding:16px 24px}
-  #hero .hero-content{padding:0 24px 60px}
+  nav{padding:16px 22px}
+  .hero-content{padding:0 22px 56px}
   .hero-stats{display:none}
-  #precio-ancla{padding:20px 24px;gap:14px}
+  #precio-ancla{padding:18px 22px;gap:14px}
   .ancla-sep{display:none}
   #gallery-strip{grid-template-columns:1fr;height:auto}
   .gal-right{grid-template-rows:auto auto}
-  .form-section{grid-template-columns:1fr;padding:60px 24px;gap:40px}
-  #diferenciador{padding:80px 24px}
-  .dif-grid{grid-template-columns:1fr;gap:40px}
+  .form-section{grid-template-columns:1fr;padding:56px 22px;gap:36px}
+  #diferenciador{padding:72px 22px}
+  .dif-grid{grid-template-columns:1fr;gap:36px}
   .dif-left{position:static}
-  #tagline-band{grid-template-columns:1fr;padding:60px 24px}
-  #ubicacion{padding:80px 24px}
+  #tagline-band{grid-template-columns:1fr;padding:56px 22px}
+  #ubicacion{padding:72px 22px}
   .ubi-grid{grid-template-columns:1fr}
-  #tipologias{padding:80px 24px}
+  #tipologias{padding:72px 22px}
   .tipo-grid{grid-template-columns:1fr}
   .esquemas-grid{grid-template-columns:1fr 1fr}
-  #esquemas{padding:60px 24px}
-  #amenidades{padding:80px 24px}
+  #esquemas{padding:56px 22px}
+  #amenidades{padding:72px 22px}
   .amen-grid{grid-template-columns:repeat(2,1fr)}
   #amen-gallery{grid-template-columns:1fr;height:auto}
-  .ag-item{height:280px}
-  footer{padding:48px 24px 32px}
-  .footer-top{grid-template-columns:1fr;gap:32px}
+  .ag-item{height:260px}
+  footer{padding:44px 22px 30px}
+  .footer-top{grid-template-columns:1fr;gap:28px}
   .form-row{grid-template-columns:1fr}
 }
-
-@keyframes fadeInUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">
-    <img src="Screenshot_2026-05-14_at_11_24_48_a_m_.jpg" alt="Bravante">
-  </a>
-  <a href="#formulario-inicio" class="nav-cta">Agendar visita</a>
+  <a href="#hero"><img src="Screenshot_2026-05-14_at_11_24_48_a_m_.jpg" alt="Bravante" style="height:26px;filter:brightness(0) invert(1)"></a>
+  <a href="#formulario" class="nav-cta">Agendar visita</a>
 </nav>
 
-<!-- ── HERO ── -->
+<!-- HERO — nueva imagen sin máscara verde -->
 <section id="hero">
   <div class="hero-img"></div>
   <div class="hero-overlay"></div>
@@ -303,7 +300,7 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
       <span class="hero-precio-mdp">MXN</span>
     </div>
     <div class="hero-actions">
-      <a href="#formulario-inicio" class="btn-primary">Quiero mi departamento</a>
+      <a href="#formulario" class="btn-primary">Quiero mi departamento</a>
       <a href="#tipologias" class="btn-ghost">Ver tipologías</a>
     </div>
   </div>
@@ -314,63 +311,55 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
   </div>
 </section>
 
-<!-- ── ANCLA ── -->
+<!-- ANCLA -->
 <div id="precio-ancla">
   <div class="ancla-item">
-    <div class="ancla-icon">
-      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-    </div>
+    <div class="ancla-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
     <div><div class="ancla-text-label">Ubicación</div><div class="ancla-text-val">Av. México · Providencia / Monraz</div></div>
   </div>
   <div class="ancla-sep"></div>
   <div class="ancla-item">
-    <div class="ancla-icon">
-      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-    </div>
+    <div class="ancla-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
     <div><div class="ancla-text-label">Disponibilidad</div><div class="ancla-text-val">Entrega inmediata</div></div>
   </div>
   <div class="ancla-sep"></div>
   <div class="ancla-item">
-    <div class="ancla-icon">
-      <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-    </div>
+    <div class="ancla-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
     <div><div class="ancla-text-label">Escrituración</div><div class="ancla-text-val">Disponible mayo 2026</div></div>
   </div>
   <div class="ancla-sep"></div>
   <div class="ancla-item">
-    <div class="ancla-icon">
-      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-    </div>
+    <div class="ancla-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
     <div><div class="ancla-text-label">Proyecto</div><div class="ancla-text-val">100% Terminado</div></div>
   </div>
-  <a href="#formulario-inicio" class="ancla-cta">Agendar visita →</a>
+  <a href="#formulario" class="ancla-cta">Agendar visita →</a>
 </div>
 
-<!-- ── GALLERY STRIP ── -->
+<!-- GALLERY STRIP — 4 imágenes únicas: edificio aéreo día / lobby / cocina / recámara -->
 <div id="gallery-strip">
   <div class="gal-item">
-    <img src="hf_20260511_232818_974a08aa-20a5-4e16-be88-80bc475a5486.jpg" alt="Bravante edificio">
+    <img src="hf_20260513_171615_c7829014-2dc7-48f2-8f6f-a8bbaa9dbad1.jpg" alt="Bravante edificio aéreo">
   </div>
   <div class="gal-right">
     <div class="gal-item">
-      <img src="hf_20260513_020646_c2bd7179-d39f-4681-9b1d-c59d2ee77b01.jpg" alt="Interior sala">
+      <img src="hf_20260513_025208_133cb84e-cfec-407c-978c-739a49f81b48.jpg" alt="Cocina equipada">
     </div>
     <div class="gal-item">
-      <img src="hf_20260513_025208_133cb84e-cfec-407c-978c-739a49f81b48.jpg" alt="Interior recámara">
+      <img src="hf_20260513_025022_79526def-923b-4042-848b-3dd5ec167606.jpg" alt="Sala interior">
     </div>
   </div>
   <div class="gal-right">
     <div class="gal-item">
-      <img src="hf_20260513_023355_f1014dbc-aacd-4d86-a83b-88ffd00b4655.jpg" alt="Terraza sky lounge">
+      <img src="hf_20260513_024750_f6f272e6-69fe-4a5a-b8eb-2da8138759ea.jpg" alt="Recámara">
     </div>
     <div class="gal-item">
-      <img src="hf_20260513_022357_077765b6-456e-4733-a95f-e0bc207bf9ce.jpg" alt="Lobby Bravante">
+      <img src="hf_20260513_173036_d2a075e1-76e8-4400-a1d6-b8749ca5385e.jpg" alt="Edificio exterior">
     </div>
   </div>
 </div>
 
-<!-- ── FORMULARIO INICIO ── -->
-<section id="formulario-inicio" class="form-section">
+<!-- FORMULARIO -->
+<section id="formulario" class="form-section">
   <div class="form-left">
     <p class="section-label">Contáctanos</p>
     <h2 class="section-title">Agenda tu<br><em>visita hoy</em></h2>
@@ -384,17 +373,17 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
   </div>
   <div class="form-box">
     <h3>Un paso de hacerlo tuyo</h3>
-    <p class="form-subtitle">Completa tus datos · te contactamos hoy</p>
+    <p class="fsub">Completa tus datos · te contactamos hoy</p>
     <div class="form-row">
       <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre completo"></div>
       <div class="form-group"><label>Teléfono / WhatsApp</label><input type="tel" placeholder="+52 33 0000 0000"></div>
     </div>
     <div class="form-group"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com"></div>
-    <div class="form-group select-wrap">
+    <div class="form-group sel">
       <label>¿Para qué buscas el departamento?</label>
       <select><option value="" disabled selected>Selecciona una opción</option><option>Uso propio</option><option>Inversión / Renta</option><option>Second home</option><option>Soy broker / asesor inmobiliario</option></select>
     </div>
-    <div class="form-group select-wrap">
+    <div class="form-group sel">
       <label>Rango de presupuesto</label>
       <select><option value="" disabled selected>Selecciona tu rango</option><option>$4,000,000 – $4,500,000 MXN</option><option>$4,500,000 – $5,000,000 MXN</option><option>$5,000,000 – $5,500,000 MXN</option><option>$5,500,000 – $6,500,000 MXN</option></select>
     </div>
@@ -403,120 +392,70 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
   </div>
 </section>
 
-<!-- ── DIFERENCIADORES ── -->
+<!-- DIFERENCIADORES -->
 <section id="diferenciador">
   <div class="dif-grid">
     <div class="dif-left">
       <p class="section-label">Por qué Bravante</p>
-      <div class="dif-quote">
-        Vivir bien no es casualidad.<span> Es una decisión que se toma en el lugar correcto.</span>
-      </div>
+      <div class="dif-quote">Vivir bien no es casualidad.<span> Es una decisión que se toma en el lugar correcto.</span></div>
       <p class="dif-autor">— Bravante · Guadalajara</p>
     </div>
     <div>
-      <div class="dif-item">
-        <div class="dif-num">01</div>
-        <div>
-          <h3><strong>La mejor ubicación</strong></h3>
-          <p>Sobre Av. México, entre Providencia y Monraz — el corredor remodelado de Guadalajara con demanda ejecutiva creciente, nuevos restaurantes y conectividad real. A 3 minutos del Consulado de EE.UU. y 5 minutos de La Minerva.</p>
-          <span class="dif-tag">El corredor que más crece en GDL</span>
-        </div>
-      </div>
-      <div class="dif-item">
-        <div class="dif-num">02</div>
-        <div>
-          <h3><strong>Cajón + bodega incluidos</strong> sin costo adicional</h3>
-          <p>Tu departamento viene completo desde el día uno: carpintería instalada, piso LVT tipo madera, cocina equipada, A/C y cristales Low-e Duovent. Todo listo para vivir o rentar de inmediato.</p>
-          <span class="dif-tag">Único en la zona</span>
-        </div>
-      </div>
-      <div class="dif-item">
-        <div class="dif-num">03</div>
-        <div>
-          <h3>Proyecto terminado · <strong>Escrituración mayo 2026</strong></h3>
-          <p>No es promesa, es realidad. Bravante está terminado y listo para entregarse. Sin tiempos de espera. Certeza real desde el primer día.</p>
-          <span class="dif-tag">Certeza real</span>
-        </div>
-      </div>
-      <div class="dif-item">
-        <div class="dif-num">04</div>
-        <div>
-          <h3><strong>Exclusividad única</strong></h3>
-          <p>Bravante te ofrece todo sin perder su exclusividad. Solo 75 departamentos y amenidades de primer nivel: sky lounge, jacuzzis, gimnasio y ancla gastronómica Coquin / Grupo Campomar. Administración habitacional independiente con comité propio.</p>
-          <span class="dif-tag">75 depas · Usos mixtos premium</span>
-        </div>
-      </div>
+      <div class="dif-item"><div class="dif-num">01</div><div>
+        <h3><strong>La mejor ubicación</strong></h3>
+        <p>Sobre Av. México, entre Providencia y Monraz — el corredor remodelado de Guadalajara con demanda ejecutiva creciente, nuevos restaurantes y conectividad real. A 3 minutos del Consulado de EE.UU. y 5 minutos de La Minerva.</p>
+        <span class="dif-tag">El corredor que más crece en GDL</span>
+      </div></div>
+      <div class="dif-item"><div class="dif-num">02</div><div>
+        <h3><strong>Cajón + bodega incluidos</strong> sin costo adicional</h3>
+        <p>Tu departamento viene completo desde el día uno: carpintería instalada, piso LVT tipo madera, cocina equipada, A/C y cristales Low-e Duovent. Todo listo para vivir o rentar de inmediato.</p>
+        <span class="dif-tag">Único en la zona</span>
+      </div></div>
+      <div class="dif-item"><div class="dif-num">03</div><div>
+        <h3>Proyecto terminado · <strong>Escrituración mayo 2026</strong></h3>
+        <p>No es promesa, es realidad. Bravante está terminado y listo para entregarse. Sin tiempos de espera. Certeza real desde el primer día.</p>
+        <span class="dif-tag">Certeza real</span>
+      </div></div>
+      <div class="dif-item"><div class="dif-num">04</div><div>
+        <h3><strong>Exclusividad única</strong></h3>
+        <p>Bravante te ofrece todo sin perder su exclusividad. Solo 75 departamentos y amenidades de primer nivel: sky lounge, jacuzzis, gimnasio y ancla gastronómica Coquin / Grupo Campomar. Administración habitacional independiente con comité propio.</p>
+        <span class="dif-tag">75 depas · Usos mixtos premium</span>
+      </div></div>
     </div>
   </div>
 </section>
 
-<!-- ── TAGLINE / LIFESTYLE BAND ── -->
+<!-- TAGLINE BAND — imagen única: sala lifestyle con vista ciudad -->
 <section id="tagline-band">
-  <div class="tagline-left">
-    <p class="section-label" style="color:rgba(103,116,82,.8)">El estilo de vida</p>
-    <div class="tagline-phrase">
-      Vive inteligente,<strong>vive BRAVANTE.</strong>
-    </div>
+  <div>
+    <p class="section-label" style="color:rgba(103,116,82,.75)">El estilo de vida</p>
+    <div class="tagline-phrase">Vive inteligente,<strong>vive BRAVANTE.</strong></div>
     <p class="tagline-sub">Av. México · Col. Juan Manuel · Guadalajara</p>
-    <div style="margin-top:36px">
-      <a href="#formulario-inicio" class="btn-primary">Agenda tu visita</a>
-    </div>
+    <div style="margin-top:34px"><a href="#formulario" class="btn-primary">Agenda tu visita</a></div>
   </div>
   <div class="tagline-right">
-    <img class="tagline-img" src="hf_20260514_000552_78cb266c-e1a4-44c5-8049-b100efd8f661.jpg" alt="Vida en Bravante">
+    <img class="tagline-img" src="hf_20260513_020646_c2bd7179-d39f-4681-9b1d-c59d2ee77b01.jpg" alt="Vida en Bravante">
     <div class="tagline-caption">La comunidad que esperabas, en el corredor correcto.</div>
   </div>
 </section>
 
-<!-- ── UBICACIÓN ── -->
+<!-- UBICACIÓN -->
 <section id="ubicacion">
   <p class="section-label">Conectividad</p>
   <h2 class="section-title">En el <em>corazón</em> de Guadalajara</h2>
   <div class="divider"></div>
   <div class="ubi-grid">
     <div>
-      <!-- 3 min Consulado -->
-      <div class="ubi-ref">
-        <div class="ubi-min">3'<span>min</span></div>
-        <div class="ubi-place"><h4>Consulado de EE.UU.</h4><p>Demanda ejecutiva garantizada para renta</p></div>
-        <div class="ubi-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg></div>
-      </div>
-      <!-- 5 min Minerva -->
-      <div class="ubi-ref">
-        <div class="ubi-min">5'<span>min</span></div>
-        <div class="ubi-place"><h4>La Minerva</h4><p>Ícono de la zona metropolitana</p></div>
-        <div class="ubi-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-      </div>
-      <!-- 5 min Providencia -->
-      <div class="ubi-ref">
-        <div class="ubi-min">5'<span>min</span></div>
-        <div class="ubi-place"><h4>Col. Providencia</h4><p>La colonia más cotizada de GDL</p></div>
-        <div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-      </div>
-      <!-- 10 min Andares -->
-      <div class="ubi-ref">
-        <div class="ubi-min">10'<span>min</span></div>
-        <div class="ubi-place"><h4>Andares / Galerías</h4><p>Centros comerciales premium de Zapopan</p></div>
-        <div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-      </div>
-      <!-- 15 min Aeropuerto -->
-      <div class="ubi-ref">
-        <div class="ubi-min">15'<span>min</span></div>
-        <div class="ubi-place"><h4>Aeropuerto Intl. Miguel Hidalgo</h4><p>Conectividad nacional e internacional</p></div>
-        <div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div>
-      </div>
-      <!-- 1 min Gastronomía -->
-      <div class="ubi-ref">
-        <div class="ubi-min">1'<span>min</span></div>
-        <div class="ubi-place"><h4>Barbarella · Kappo · La Tequila</h4><p>Corredor gastronómico Av. México caminando</p></div>
-        <div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-      </div>
+      <div class="ubi-ref"><div class="ubi-min">3'<span>min</span></div><div class="ubi-place"><h4>Consulado de EE.UU.</h4><p>Demanda ejecutiva garantizada para renta</p></div><div class="ubi-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18"/></svg></div></div>
+      <div class="ubi-ref"><div class="ubi-min">5'<span>min</span></div><div class="ubi-place"><h4>La Minerva</h4><p>Ícono de la zona metropolitana</p></div><div class="ubi-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+      <div class="ubi-ref"><div class="ubi-min">5'<span>min</span></div><div class="ubi-place"><h4>Col. Providencia</h4><p>La colonia más cotizada de GDL</p></div><div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div>
+      <div class="ubi-ref"><div class="ubi-min">10'<span>min</span></div><div class="ubi-place"><h4>Andares / Galerías</h4><p>Centros comerciales premium de Zapopan</p></div><div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div></div>
+      <div class="ubi-ref"><div class="ubi-min">15'<span>min</span></div><div class="ubi-place"><h4>Aeropuerto Intl. Miguel Hidalgo</h4><p>Conectividad nacional e internacional</p></div><div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg></div></div>
+      <div class="ubi-ref"><div class="ubi-min">1'<span>min</span></div><div class="ubi-place"><h4>Barbarella · Kappo · La Tequila</h4><p>Corredor gastronómico Av. México caminando</p></div><div class="ubi-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div></div>
     </div>
     <div class="ubi-map">
       <div class="map-pin-area">
-        <div class="map-pin-svg">
-          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--terracota)" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="rgba(148,65,49,.2)"/></svg>
-        </div>
+        <div class="map-pin-svg"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
         <p class="map-address">Av. México #3016</p>
         <p class="map-city">Col. Juan Manuel · Guadalajara, Jalisco</p>
         <a href="https://maps.app.goo.gl/kir2Xd9ULhZiBPrh9" target="_blank" class="map-link">Ver en Google Maps →</a>
@@ -525,23 +464,21 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
   </div>
 </section>
 
-<!-- ── TIPOLOGÍAS ── -->
+<!-- TIPOLOGÍAS — cada tipología con imagen diferente y única -->
 <section id="tipologias">
   <p class="section-label">Modelos disponibles</p>
   <h2 class="section-title" style="color:var(--verde)">Elige tu <em>espacio</em></h2>
-  <div class="divider"></div>
-  <p style="font-size:14px;font-weight:300;color:#666;margin-top:12px;max-width:480px;line-height:1.8">Tres tipologías diseñadas para distintos estilos de vida. Todas incluyen cajón de estacionamiento y bodega sin costo adicional.</p>
+  <div class="divider" style="background:var(--verde)"></div>
+  <p style="font-size:14px;font-weight:300;color:#666;margin-top:10px;max-width:460px;line-height:1.8">Tres tipologías diseñadas para distintos estilos de vida. Todas incluyen cajón y bodega sin costo adicional.</p>
   <div class="tipo-grid">
 
-    <!-- TIPO A -->
+    <!-- A — render salón eventos -->
     <div class="tipo-card featured">
       <div class="tipo-header">
         <div><div class="tipo-letra">A</div><div class="tipo-nombre">Departamento Premier</div></div>
         <div class="tipo-badge">Prioridad</div>
       </div>
-      <div class="tipo-plan">
-        <img src="hf_20260513_025022_79526def-923b-4042-848b-3dd5ec167606.jpg" alt="Interior tipo A">
-      </div>
+      <div class="tipo-plan"><img src="hf_20260428_014814_2c9d6d9c-d2ff-4981-9176-aced8eb1e863.jpg" alt="Tipo A interior"></div>
       <div class="tipo-body">
         <div class="tipo-specs">
           <div class="tipo-spec"><span class="tipo-spec-val">73–78</span><span class="tipo-spec-key">m²</span></div>
@@ -555,14 +492,12 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
       </div>
     </div>
 
-    <!-- TIPO B -->
+    <!-- B — cocina real del depto muestra -->
     <div class="tipo-card">
       <div class="tipo-header">
         <div><div class="tipo-letra" style="color:var(--verde-mid)">B</div><div class="tipo-nombre">Departamento</div></div>
       </div>
-      <div class="tipo-plan" style="background:#e8e6e0">
-        <img src="hf_20260513_024750_f6f272e6-69fe-4a5a-b8eb-2da8138759ea.jpg" alt="Interior tipo B">
-      </div>
+      <div class="tipo-plan"><img src="hf_20260513_023940_32442180-73f5-4fb9-960a-7d2828921c37.jpg" alt="Tipo B interior"></div>
       <div class="tipo-body">
         <div class="tipo-specs">
           <div class="tipo-spec"><span class="tipo-spec-val">60–62</span><span class="tipo-spec-key">m²</span></div>
@@ -570,21 +505,19 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
           <div class="tipo-spec"><span class="tipo-spec-val">1</span><span class="tipo-spec-key">Baño</span></div>
         </div>
         <div class="tipo-precio-area">
-          <div><div class="tipo-desde">Desde</div><div class="tipo-precio">$4,400,000 <span class="tipo-mdp">MXN</span></div></div>
+          <div><div class="tipo-desde">Desde</div><div class="tipo-precio" style="color:var(--verde)">$4,400,000 <span class="tipo-mdp">MXN</span></div></div>
         </div>
         <div class="tipo-incluye"><p style="color:#444">Cajón + bodega incluidos · Terraza</p></div>
       </div>
     </div>
 
-    <!-- TIPO C LOFT -->
+    <!-- C Loft — detalle interior -->
     <div class="tipo-card">
       <div class="tipo-header">
         <div><div class="tipo-letra" style="color:var(--verde-mid)">C</div><div class="tipo-nombre">Loft</div></div>
         <div class="tipo-badge" style="background:var(--verde-mid)">Inversión</div>
       </div>
-      <div class="tipo-plan" style="background:#e8e6e0">
-        <img src="hf_20260513_023940_32442180-73f5-4fb9-960a-7d2828921c37.jpg" alt="Interior loft C">
-      </div>
+      <div class="tipo-plan"><img src="hf_20260513_234901_21e73566-e2e9-4250-a61c-89ae2241e0d1.jpg" alt="Loft C interior"></div>
       <div class="tipo-body">
         <div class="tipo-specs">
           <div class="tipo-spec"><span class="tipo-spec-val">39–44</span><span class="tipo-spec-key">m²</span></div>
@@ -592,7 +525,7 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
           <div class="tipo-spec"><span class="tipo-spec-val">1</span><span class="tipo-spec-key">Baño</span></div>
         </div>
         <div class="tipo-precio-area">
-          <div><div class="tipo-desde">Desde</div><div class="tipo-precio">$4,000,000 <span class="tipo-mdp">MXN</span></div></div>
+          <div><div class="tipo-desde">Desde</div><div class="tipo-precio" style="color:var(--verde)">$4,000,000 <span class="tipo-mdp">MXN</span></div></div>
         </div>
         <div class="tipo-incluye"><p style="color:#444">Cajón + bodega incluidos sin costo extra</p></div>
       </div>
@@ -601,9 +534,9 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
   </div>
 </section>
 
-<!-- ── ESQUEMAS DE PAGO ── -->
+<!-- ESQUEMAS -->
 <section id="esquemas">
-  <p class="section-label" style="color:rgba(103,116,82,.8)">Facilidades de compra</p>
+  <p class="section-label" style="color:rgba(103,116,82,.75)">Facilidades de compra</p>
   <h2 class="section-title" style="color:var(--crema)">Tu esquema, <em style="color:var(--verde-mid)">tu ritmo</em></h2>
   <div class="divider"></div>
   <div class="esquemas-grid">
@@ -614,77 +547,43 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
   </div>
 </section>
 
-<!-- ── AMENIDADES ── -->
+<!-- AMENIDADES -->
 <section id="amenidades">
-  <div class="amenidades-intro">
+  <div class="amen-intro">
     <p class="section-label">Vida en Bravante</p>
     <h2 class="section-title">Amenidades que <em>elevan</em> tu día a día</h2>
     <div class="divider"></div>
-    <p>Un piso sky-top completo diseñado para quienes viven distinto. No solo dónde vives — cómo vives.</p>
+    <p>Un piso sky-top diseñado para quienes viven distinto. No solo dónde vives — cómo vives.</p>
   </div>
   <div class="amen-grid">
-    <!-- Premium -->
-    <div class="amen-card premium">
-      <div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
-      <div class="amen-name">Jacuzzis Familiares</div>
-      <div class="amen-desc">2 jacuzzis con asoleaderos en nivel sky</div>
-    </div>
-    <div class="amen-card premium">
-      <div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
-      <div class="amen-name">Sky Lounge</div>
-      <div class="amen-desc">Terraza con vista panorámica de GDL</div>
-    </div>
-    <div class="amen-card premium">
-      <div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
-      <div class="amen-name">Área Comercial</div>
-      <div class="amen-desc">Ancla Coquin / Grupo Campomar en PB</div>
-    </div>
-    <div class="amen-card premium">
-      <div class="amen-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-      <div class="amen-name">Gimnasio</div>
-      <div class="amen-desc">Equipado con vestidores y regaderas</div>
-    </div>
-    <!-- Standard -->
-    <div class="amen-card">
-      <div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M8.56 2.9A7 7 0 0119 9v1h2a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1H1a1 1 0 01-1-1v-3a1 1 0 011-1h2V9a7 7 0 014.56-6.1"/><line x1="12" y1="2" x2="12" y2="4"/></svg></div>
-      <div class="amen-name">Asadores</div>
-      <div class="amen-desc">Con barra de servicio para eventos</div>
-    </div>
-    <div class="amen-card">
-      <div class="amen-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-      <div class="amen-name">Salón de Juegos</div>
-      <div class="amen-desc">Entretenimiento dentro del edificio</div>
-    </div>
-    <div class="amen-card">
-      <div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-      <div class="amen-name">Salón de Eventos</div>
-      <div class="amen-desc">Usos múltiples y reuniones privadas</div>
-    </div>
-    <div class="amen-card">
-      <div class="amen-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-      <div class="amen-name">246 Cajones</div>
-      <div class="amen-desc">4 sótanos · cajón incluido en precio</div>
-    </div>
+    <div class="amen-card p"><div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div><div class="amen-name">Jacuzzis Familiares</div><div class="amen-desc">2 jacuzzis con asoleaderos en nivel sky</div></div>
+    <div class="amen-card p"><div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div><div class="amen-name">Sky Lounge</div><div class="amen-desc">Terraza con vista panorámica de GDL</div></div>
+    <div class="amen-card p"><div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="amen-name">Área Comercial</div><div class="amen-desc">Ancla Coquin / Grupo Campomar en PB</div></div>
+    <div class="amen-card p"><div class="amen-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="amen-name">Gimnasio</div><div class="amen-desc">Equipado con vestidores y regaderas</div></div>
+    <div class="amen-card"><div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M8.56 2.9A7 7 0 0119 9v1h2a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H4a2 2 0 01-2-2v-1H1a1 1 0 01-1-1v-3a1 1 0 011-1h2V9a7 7 0 014.56-6.1"/></svg></div><div class="amen-name">Asadores</div><div class="amen-desc">Con barra de servicio para eventos</div></div>
+    <div class="amen-card"><div class="amen-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div class="amen-name">Salón de Juegos</div><div class="amen-desc">Entretenimiento dentro del edificio</div></div>
+    <div class="amen-card"><div class="amen-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div><div class="amen-name">Salón de Eventos</div><div class="amen-desc">Usos múltiples y reuniones privadas</div></div>
+    <div class="amen-card"><div class="amen-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><div class="amen-name">246 Cajones</div><div class="amen-desc">4 sótanos · cajón incluido en precio</div></div>
   </div>
 </section>
 
-<!-- ── AMENIDADES GALLERY ── -->
+<!-- AMENIDADES GALLERY — 3 imágenes únicas (sky lounge render / jacuzzis / terraza sunset) -->
 <div id="amen-gallery">
   <div class="ag-item">
-    <img src="hf_20260513_023355_f1014dbc-aacd-4d86-a83b-88ffd00b4655.jpg" alt="Sky Lounge Bravante">
+    <img src="hf_20260513_023355_f1014dbc-aacd-4d86-a83b-88ffd00b4655.jpg" alt="Sky Lounge">
     <div class="ag-label">Sky Lounge · Vista Guadalajara</div>
   </div>
   <div class="ag-item">
-    <img src="hf_20260428_044751_028a44ee-b64c-441c-85d7-c650ffe86f55.jpg" alt="Jacuzzis Bravante">
+    <img src="hf_20260428_044751_028a44ee-b64c-441c-85d7-c650ffe86f55.jpg" alt="Jacuzzis">
     <div class="ag-label">Jacuzzis · Piso sky-top</div>
   </div>
   <div class="ag-item">
-    <img src="hf_20260513_171432_8ac5ccb5-57cf-445f-9274-1667cee06870.jpg" alt="Terraza Bravante">
+    <img src="hf_20260428_012518_90852f63-26b3-43ce-baff-35b01b698b64.jpg" alt="Terraza">
     <div class="ag-label">Terraza · Atardecer en Av. México</div>
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
@@ -694,21 +593,11 @@ footer{background:var(--verde);padding:64px 60px 40px;border-top:1px solid rgba(
     </div>
     <div class="footer-col">
       <h5>Sala de Ventas</h5>
-      <address>
-        Av. México #3016<br>
-        Col. Juan Manuel<br>
-        44680 Guadalajara, Jalisco<br><br>
-        Lunes a Domingo<br>
-        10:00 am – 6:00 pm
-      </address>
+      <address>Av. México #3016<br>Col. Juan Manuel<br>44680 Guadalajara, Jalisco<br><br>Lunes a Domingo<br>10:00 am – 6:00 pm</address>
     </div>
     <div class="footer-col">
       <h5>Contacto</h5>
-      <p>
-        <a href="tel:+523300000000">+52 (33) 0000-0000</a><br>
-        <a href="mailto:ventas@bravante.mx">ventas@bravante.mx</a><br><br>
-        <a href="https://instagram.com/bravante.gdl" target="_blank">@bravante.gdl</a>
-      </p>
+      <p><a href="tel:+523300000000">+52 (33) 0000-0000</a><br><a href="mailto:ventas@bravante.mx">ventas@bravante.mx</a><br><br><a href="https://instagram.com/bravante.gdl" target="_blank">@bravante.gdl</a></p>
     </div>
   </div>
   <div class="footer-bottom">
