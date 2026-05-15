@@ -44,7 +44,7 @@ nav{
 /* ── HERO — torre completa visible a la derecha, contenido a la izquierda ── */
 #hero{
   position:relative;height:100vh;min-height:700px;
-  display:flex;align-items:flex-end;overflow:hidden;
+  display:flex;align-items:center;overflow:hidden;
   background:var(--verde);
 }
 /* Imagen cubre todo el lado derecho hasta el borde — sin columna verde */
@@ -64,7 +64,7 @@ nav{
 }
 .hero-content{
   position:relative;z-index:2;
-  padding:0 60px 80px;
+  padding:0 60px;
   max-width:600px;
 }
 .hero-badge{
@@ -196,13 +196,14 @@ nav{
 }
 
 /* ── TAGLINE — verde oscuro ── */
-#tagline-band{background:var(--verde);padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+#tagline-band{background:var(--verde);padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:560px}
 #tagline-band .section-label{color:rgba(103,116,82,.8)}
+.tagline-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
 .tagline-phrase{font-family:var(--serif);font-size:clamp(30px,4vw,52px);font-weight:300;font-style:italic;color:var(--crema);line-height:1.15}
 .tagline-phrase strong{font-style:normal;font-weight:600;color:var(--blanco);display:block}
 .tagline-sub{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:22px}
-.tagline-right{position:relative}
-.tagline-img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;display:block}
+.tagline-right{position:relative;overflow:hidden}
+.tagline-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;position:absolute;inset:0}
 .tagline-caption{
   position:absolute;bottom:0;left:0;right:0;
   background:linear-gradient(to top,rgba(0,41,27,.88),transparent);
@@ -210,20 +211,20 @@ nav{
 }
 
 /* ── UBICACIÓN — terracota ── */
-#ubicacion{background:var(--terracota);padding:100px 60px}
-#ubicacion .section-label{color:rgba(255,255,255,.5)}
-#ubicacion .section-title{color:var(--blanco)}
-#ubicacion .section-title em{color:var(--crema)}
-#ubicacion .divider{background:rgba(255,255,255,.35)}
+#ubicacion{background:var(--verde);padding:100px 60px}
+#ubicacion .section-label{color:rgba(103,116,82,.8)}
+#ubicacion .section-title{color:var(--crema)}
+#ubicacion .section-title em{color:var(--verde-mid)}
+#ubicacion .divider{background:rgba(103,116,82,.5)}
 .ubi-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-top:56px}
 .ubi-ref{
   display:grid;grid-template-columns:58px 1fr auto;
   align-items:center;gap:18px;padding:18px 0;
-  border-bottom:1px solid rgba(255,255,255,.12);transition:padding-left .2s;
+  border-bottom:1px solid rgba(255,255,255,.1);transition:padding-left .2s;
 }
 .ubi-ref:hover{padding-left:6px}
-.ubi-min{font-family:var(--serif);font-size:36px;font-weight:600;color:var(--blanco);line-height:1}
-.ubi-min span{font-family:var(--sans);font-size:10px;color:rgba(255,255,255,.45);letter-spacing:.1em;display:block;margin-top:2px}
+.ubi-min{font-family:var(--serif);font-size:36px;font-weight:600;color:var(--crema);line-height:1}
+.ubi-min span{font-family:var(--sans);font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.1em;display:block;margin-top:2px}
 .ubi-place h4{font-size:16px;font-weight:600;letter-spacing:.04em;color:var(--blanco)}
 .ubi-place p{font-size:14px;font-weight:300;color:rgba(255,255,255,.55);margin-top:2px}
 .ubi-icon{width:22px;height:22px;opacity:.45;flex-shrink:0}
@@ -235,7 +236,7 @@ nav{
 
 
 /* ── TIPOLOGÍAS — crema ── */
-#tipologias{background:var(--crema);color:var(--negro);padding:100px 60px}
+#tipologias{background:var(--crema);color:var(--negro);padding:48px 60px 80px}
 #tipologias .section-label{color:var(--terracota)}
 #tipologias .section-title{color:var(--verde)}
 #tipologias .section-title em{color:var(--verde-mid)}
@@ -248,8 +249,8 @@ nav{
 .tipo-card.featured .tipo-header{background:rgba(0,0,0,.28)}
 .tipo-letra{font-family:var(--serif);font-size:40px;font-weight:300;color:var(--crema);line-height:1}
 .tipo-nombre{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.tipo-plan{height:210px;overflow:hidden;position:relative}
-.tipo-plan img{width:100%;height:100%;object-fit:cover;object-position:center}
+.tipo-plan{height:300px;overflow:hidden;position:relative}
+.tipo-plan img{width:100%;height:100%;object-fit:cover;object-position:center top}
 .tipo-body{padding:26px}
 .tipo-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
 .tipo-spec{text-align:center}
@@ -350,11 +351,11 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
   .ancla-sep{display:none}
   #gallery-strip{grid-template-columns:1fr;height:auto}
   .gal-item{height:300px}
-  .form-section{grid-template-columns:1fr;padding:56px 22px;gap:36px}
+  .form-section{grid-template-columns:1fr;padding:0;gap:0}
   #diferenciador{padding:72px 22px}
   .dif-grid{grid-template-columns:1fr;gap:36px}
   .dif-left{position:static}
-  #tagline-band{grid-template-columns:1fr;padding:56px 22px}
+  #tagline-band{grid-template-columns:1fr;min-height:auto} .tagline-left{padding:56px 22px !important} .tagline-right{height:320px;position:relative}
   #ubicacion{padding:72px 22px}
   .ubi-grid{grid-template-columns:1fr}
   #tipologias{padding:72px 22px}
@@ -386,18 +387,17 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">Proyecto terminado · Últimas unidades</div>
-    <p class="hero-city">Guadalajara, Jalisco · Av. México 3016</p>
+    <p class="hero-city">Guadalajara, Jalisco</p>
     <div class="hero-logo-area">
       <img src="logo.png" alt="Bravante">
     </div>
     <p class="hero-sub">
       Departamentos y lofts de <b>usos mixtos</b> sobre Av. México.<br>
-      Cajón y bodega incluidos. Llave en mano desde el día uno.
+      Llave en mano desde el día uno.
     </p>
     <div class="hero-precio">
       <span class="hero-precio-desde">Desde</span>
-      <span class="hero-precio-num">$4,000,000</span>
-      <span class="hero-precio-mdp">MXN</span>
+      <span class="hero-precio-num">$4 mdp*</span>
     </div>
     <div class="hero-actions">
       <a href="#formulario" class="btn-primary">Quiero mi departamento</a>
@@ -413,9 +413,9 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
   <div class="ancla-sep"></div>
   <div class="ancla-item"><div class="ancla-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div><div class="ancla-text-label">Disponibilidad</div><div class="ancla-text-val">Entrega inmediata</div></div></div>
   <div class="ancla-sep"></div>
-  <div class="ancla-item"><div class="ancla-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div class="ancla-text-label">Escrituración</div><div class="ancla-text-val">Disponible mayo 2026</div></div></div>
+  <div class="ancla-item"><div class="ancla-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><div class="ancla-text-label">Incluido</div><div class="ancla-text-val">Cajón y Bodega incluidos</div></div></div>
   <div class="ancla-sep"></div>
-  <div class="ancla-item"><div class="ancla-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ancla-text-label">Proyecto</div><div class="ancla-text-val">100% Terminado</div></div></div>
+  <div class="ancla-item"><div class="ancla-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div><div class="ancla-text-label">Concepto</div><div class="ancla-text-val">Proyecto de usos mixtos con área comercial</div></div></div>
   <a href="#formulario" class="ancla-cta">Agendar visita →</a>
 </div>
 
@@ -427,29 +427,47 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
 </div>
 
 <!-- FORMULARIO -->
-<section id="formulario" class="form-section">
-  <div class="form-left">
-    <p class="section-label">Contáctanos</p>
-    <h2 class="section-title">Agenda tu<br><em>visita hoy</em></h2>
-    <div class="divider"></div>
-    <p>Nuestros asesores están disponibles lunes a domingo de 10am a 6pm. Un espacio diseñado para impresionar desde el primer paso.</p>
+<section id="formulario" style="background:var(--crema);padding:60px;">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:100%">
+    <!-- Lado izquierdo: texto -->
+    <div style="background:var(--crema);padding:48px 52px;display:flex;flex-direction:column;justify-content:center">
+      <p class="section-label" style="color:var(--terracota)">Contáctanos</p>
+      <h2 class="section-title" style="color:var(--verde);font-size:clamp(36px,4vw,56px)">Agenda tu<br><em style="color:var(--verde-mid)">visita hoy</em></h2>
+      <div class="divider" style="background:var(--terracota)"></div>
+      <p style="font-size:17px;font-weight:300;line-height:1.8;color:#444;margin-top:8px">Nuestros asesores están disponibles lunes a domingo de 10am a 6pm. Un espacio diseñado para impresionar desde el primer paso.</p>
+    </div>
+    <!-- Lado derecho: formulario -->
+    <div class="form-box" style="background:var(--verde);margin:0">
+      <h3 style="font-size:26px">Agenda tu visita</h3>
+      <p class="fsub">Completa tus datos · te contactamos hoy</p>
+      <div class="form-row">
+        <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre completo"></div>
+        <div class="form-group"><label>Teléfono / WhatsApp</label><input type="tel" placeholder="+52 33 0000 0000"></div>
+      </div>
+      <div class="form-group"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com"></div>
+      <div class="form-group sel"><label>¿Para qué buscas el departamento?</label>
+        <select><option value="" disabled selected>Selecciona una opción</option><option>Uso propio</option><option>Inversión / Renta</option><option>Second home</option><option>Soy broker / asesor inmobiliario</option></select>
+      </div>
+      <div class="form-group sel"><label>Rango de presupuesto</label>
+        <select><option value="" disabled selected>Selecciona tu rango</option><option>$4,000,000 – $4,500,000 MXN</option><option>$4,500,000 – $5,000,000 MXN</option><option>$5,000,000 – $5,500,000 MXN</option><option>$5,500,000 – $6,500,000 MXN</option></select>
+      </div>
+      <div class="form-check"><input type="checkbox" id="wa1" checked><label for="wa1">Acepto recibir información y ser contactado vía WhatsApp</label></div>
+      <button class="btn-form">Quiero que me contacten →</button>
+    </div>
   </div>
-  <div class="form-box">
-    <h3>Un paso de hacerlo tuyo</h3>
-    <p class="fsub">Completa tus datos · te contactamos hoy</p>
-    <div class="form-row">
-      <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre completo"></div>
-      <div class="form-group"><label>Teléfono / WhatsApp</label><input type="tel" placeholder="+52 33 0000 0000"></div>
-    </div>
-    <div class="form-group"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com"></div>
-    <div class="form-group sel"><label>¿Para qué buscas el departamento?</label>
-      <select><option value="" disabled selected>Selecciona una opción</option><option>Uso propio</option><option>Inversión / Renta</option><option>Second home</option><option>Soy broker / asesor inmobiliario</option></select>
-    </div>
-    <div class="form-group sel"><label>Rango de presupuesto</label>
-      <select><option value="" disabled selected>Selecciona tu rango</option><option>$4,000,000 – $4,500,000 MXN</option><option>$4,500,000 – $5,000,000 MXN</option><option>$5,000,000 – $5,500,000 MXN</option><option>$5,500,000 – $6,500,000 MXN</option></select>
-    </div>
-    <div class="form-check"><input type="checkbox" id="wa1" checked><label for="wa1">Acepto recibir información y ser contactado vía WhatsApp</label></div>
-    <button class="btn-form">Quiero que me contacten →</button>
+</section>
+
+<!-- TAGLINE — foto de noche con frase encima -->
+<section id="tagline-band">
+  <div class="tagline-left">
+    <p class="section-label">El estilo de vida</p>
+    <div class="tagline-phrase">Vive inteligente,<strong>vive BRAVANTE.</strong></div>
+    <p class="tagline-sub">Av. México · Col. Juan Manuel · Guadalajara</p>
+    <div style="margin-top:34px"><a href="#formulario" class="btn-primary">Agenda tu visita</a></div>
+  </div>
+  <div class="tagline-right">
+    <img class="tagline-img" src="torre_noche.jpg" alt="Bravante de noche">
+    <div class="tagline-caption">La comunidad que esperabas, en el corredor correcto.</div>
   </div>
 </section>
 
@@ -465,22 +483,8 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
       <div class="dif-item"><div class="dif-num">01</div><div><h3><strong>La mejor ubicación</strong></h3><p>Sobre Av. México, entre Providencia y Monraz — el corredor remodelado de Guadalajara con demanda ejecutiva creciente, nuevos restaurantes y conectividad real. A 3 minutos del Consulado de EE.UU. y 5 minutos de La Minerva.</p><span class="dif-tag">El corredor que más crece en GDL</span></div></div>
       <div class="dif-item"><div class="dif-num">02</div><div><h3><strong>Cajón + bodega incluidos</strong> sin costo adicional</h3><p>Tu departamento viene completo desde el día uno: carpintería instalada, piso LVT tipo madera, cocina equipada, A/C y cristales Low-e Duovent. Todo listo para vivir o rentar de inmediato.</p><span class="dif-tag">Único en la zona</span></div></div>
       <div class="dif-item"><div class="dif-num">03</div><div><h3>Proyecto terminado · <strong>Escrituración mayo 2026</strong></h3><p>No es promesa, es realidad. Bravante está terminado y listo para entregarse. Sin tiempos de espera. Certeza real desde el primer día.</p><span class="dif-tag">Certeza real</span></div></div>
-      <div class="dif-item"><div class="dif-num">04</div><div><h3><strong>Exclusividad única</strong></h3><p>Bravante te ofrece todo sin perder su exclusividad. Solo 75 departamentos y amenidades de primer nivel: sky lounge, jacuzzis, gimnasio y ancla gastronómica Coquin / Grupo Campomar. Administración habitacional independiente con comité propio.</p><span class="dif-tag">75 depas · Usos mixtos premium</span></div></div>
+      <div class="dif-item"><div class="dif-num">04</div><div><h3><strong>Exclusividad única</strong></h3><p>Bravante te ofrece todo sin perder su exclusividad. Solo 75 departamentos y amenidades de primer nivel: sky lounge, jacuzzis, gimnasio y área comercial en planta baja. Administración habitacional independiente con comité propio.</p><span class="dif-tag">75 depas · Usos mixtos premium</span></div></div>
     </div>
-  </div>
-</section>
-
-<!-- TAGLINE -->
-<section id="tagline-band">
-  <div>
-    <p class="section-label">El estilo de vida</p>
-    <div class="tagline-phrase">Vive inteligente,<strong>vive BRAVANTE.</strong></div>
-    <p class="tagline-sub">Av. México · Col. Juan Manuel · Guadalajara</p>
-    <div style="margin-top:34px"><a href="#formulario" class="btn-primary">Agenda tu visita</a></div>
-  </div>
-  <div class="tagline-right">
-    <img class="tagline-img" src="torre_noche.jpg" alt="Bravante de noche">
-    <div class="tagline-caption">La comunidad que esperabas, en el corredor correcto.</div>
   </div>
 </section>
 
@@ -537,7 +541,7 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
     </div>
     <div class="tipo-card">
       <div class="tipo-header"><div><div class="tipo-letra" style="color:var(--verde-mid)">C</div><div class="tipo-nombre">Loft</div></div></div>
-      <div class="tipo-plan"><img src="hf_20260513_234901_21e73566-e2e9-4250-a61c-89ae2241e0d1.jpg" alt="Loft C"></div>
+      <div class="tipo-plan"><img src="hf_20260513_024750_f6f272e6-69fe-4a5a-b8eb-2da8138759ea.jpg" alt="Loft C recámara"></div>
       <div class="tipo-body">
         <div class="tipo-specs"><div class="tipo-spec"><span class="tipo-spec-val">39–44</span><span class="tipo-spec-key">m²</span></div><div class="tipo-spec"><span class="tipo-spec-val">1</span><span class="tipo-spec-key">Recámara</span></div><div class="tipo-spec"><span class="tipo-spec-val">1</span><span class="tipo-spec-key">Baño</span></div></div>
         <div class="tipo-precio-area"><div><div class="tipo-desde">Desde</div><div class="tipo-precio" style="color:var(--verde)">$4,000,000 <span class="tipo-mdp">MXN</span></div></div></div>
@@ -596,7 +600,7 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
       <div class="footer-dev">Desarrollado por <strong>KIVA Inversión Inmobiliaria Integral</strong></div>
     </div>
     <div class="footer-col"><h5>Sala de Ventas</h5><address>Av. México #3016<br>Col. Juan Manuel<br>44680 Guadalajara, Jalisco<br><br>Lunes a Domingo<br>10:00 am – 6:00 pm</address></div>
-    <div class="footer-col"><h5>Contacto</h5><p><a href="tel:+523300000000">+52 (33) 0000-0000</a><br><a href="mailto:ventas@bravante.mx">ventas@bravante.mx</a><br><br><a href="https://instagram.com/bravante.gdl" target="_blank">@bravante.gdl</a></p></div>
+    <div class="footer-col"><h5>Contacto</h5><p><a href="mailto:ventas@bravante.mx">ventas@bravante.mx</a><br><br><a href="https://instagram.com/bravante.gdl" target="_blank">@bravante.gdl</a></p></div>
   </div>
   <div class="footer-bottom">
     <p class="footer-legal">Precios sujetos a cambio sin previo aviso. Imágenes de carácter ilustrativo. Escrituración sujeta a trámites registrales vigentes. Consulte términos y condiciones con su asesor. © 2026 KIVA Inversión Inmobiliaria Integral · Todos los derechos reservados.</p>
