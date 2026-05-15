@@ -121,10 +121,10 @@ nav{
 }
 .ancla-cta:hover{background:var(--verde-mid)}
 
-/* ── GALLERY STRIP — 3 imágenes horizontales ── */
-#gallery-strip{display:grid;grid-template-columns:1fr 1fr 1fr;height:480px;gap:3px;overflow:hidden}
+/* ── GALLERY STRIP — imágenes completas sin cortar ── */
+#gallery-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;align-items:start;background:var(--verde)}
 .gal-item{overflow:hidden;position:relative}
-.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gal-item img{width:100%;height:auto;display:block;transition:transform .6s ease}
 .gal-item:hover img{transform:scale(1.04)}
 
 /* ── SECCIÓN BASE ── */
@@ -196,14 +196,14 @@ nav{
 }
 
 /* ── TAGLINE — verde oscuro ── */
-#tagline-band{background:var(--verde);padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:560px}
+#tagline-band{background:var(--verde);padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
 #tagline-band .section-label{color:rgba(103,116,82,.8)}
 .tagline-left{padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
 .tagline-phrase{font-family:var(--serif);font-size:clamp(30px,4vw,52px);font-weight:300;font-style:italic;color:var(--crema);line-height:1.15}
 .tagline-phrase strong{font-style:normal;font-weight:600;color:var(--blanco);display:block}
 .tagline-sub{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:22px}
-.tagline-right{position:relative;overflow:hidden}
-.tagline-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;position:absolute;inset:0}
+.tagline-right{position:relative;overflow:hidden;background:var(--verde)}
+.tagline-img{width:100%;height:auto;display:block}
 .tagline-caption{
   position:absolute;bottom:0;left:0;right:0;
   background:linear-gradient(to top,rgba(0,41,27,.88),transparent);
@@ -241,7 +241,7 @@ nav{
 #tipologias .section-title{color:var(--verde)}
 #tipologias .section-title em{color:var(--verde-mid)}
 #tipologias .divider{background:var(--terracota)}
-.tipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px}
+.tipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:56px;align-items:start}
 .tipo-card{background:var(--blanco);overflow:hidden;transition:transform .3s,box-shadow .3s}
 .tipo-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
 .tipo-card.featured{background:var(--verde);color:var(--blanco)}
@@ -249,8 +249,8 @@ nav{
 .tipo-card.featured .tipo-header{background:rgba(0,0,0,.28)}
 .tipo-letra{font-family:var(--serif);font-size:40px;font-weight:300;color:var(--crema);line-height:1}
 .tipo-nombre{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-.tipo-plan{height:300px;overflow:hidden;position:relative}
-.tipo-plan img{width:100%;height:100%;object-fit:cover;object-position:center top}
+.tipo-plan{overflow:hidden;position:relative;background:var(--verde)}
+.tipo-plan img{width:100%;height:auto;display:block}
 .tipo-body{padding:26px}
 .tipo-specs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
 .tipo-spec{text-align:center}
@@ -314,9 +314,9 @@ nav{
 .amen-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.55);margin-top:5px;line-height:1.5}
 
 /* ── AMENIDADES GALLERY ── */
-#amen-gallery{display:grid;grid-template-columns:1fr 1fr 1fr;height:400px;gap:3px}
+#amen-gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;align-items:start;background:var(--verde)}
 .ag-item{overflow:hidden;position:relative}
-.ag-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.ag-item img{width:100%;height:auto;display:block;transition:transform .5s}
 .ag-item:hover img{transform:scale(1.05)}
 .ag-label{
   position:absolute;bottom:0;left:0;right:0;
@@ -349,8 +349,8 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
   .hero-content{padding:0 22px 56px;max-width:100%}
   #precio-ancla{padding:18px 22px;gap:14px}
   .ancla-sep{display:none}
-  #gallery-strip{grid-template-columns:1fr;height:auto}
-  .gal-item{height:300px}
+  #gallery-strip{grid-template-columns:1fr}
+  #amen-gallery{grid-template-columns:1fr}
   .form-section{grid-template-columns:1fr;padding:0;gap:0}
   #diferenciador{padding:72px 22px}
   .dif-grid{grid-template-columns:1fr;gap:36px}
@@ -364,8 +364,6 @@ footer{background:var(--verde);padding:60px 60px 38px;border-top:1px solid rgba(
   #esquemas{padding:56px 22px}
   #amenidades{padding:72px 22px}
   .amen-grid{grid-template-columns:repeat(2,1fr)}
-  #amen-gallery{grid-template-columns:1fr;height:auto}
-  .ag-item{height:260px}
   footer{padding:44px 22px 30px}
   .footer-top{grid-template-columns:1fr;gap:28px}
   .form-row{grid-template-columns:1fr}
